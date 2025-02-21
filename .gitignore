@@ -1,0 +1,58 @@
+# Node.js / npm (if you're using JavaScript)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json  # Optional: Include if you prefer Yarn or want to regenerate lockfile
+yarn.lock         # Optional: Include if you prefer npm
+
+# Build Output
+dist/
+build/
+*.min.js
+*.min.css
+
+# Dependency Directories
+bower_components/
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Environment Variables
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Editor & IDE Files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Operating System Files
+.DS_Store         # macOS
+Thumbs.db         # Windows
+
+# Temporary Files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Sensitive Files
+*.key
+*.pem
+*.cert
+credentials.json
+
+# Testing
+coverage/
+*.lcov
+
+# Miscellaneous
+*.seed
+*.pid
+*.pid.lock
