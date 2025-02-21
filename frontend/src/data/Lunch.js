@@ -1,157 +1,173 @@
-const CollegeLunchData = [
+import img1 from '../assets/Lunch/img1_DalRice.png';
+import img2 from '../assets/Lunch/img2_RajmaChawal.jpeg';
+import img3 from '../assets/Lunch/img3_PaneerButterMasala.jpeg';
+import img4 from '../assets/Lunch/img4_CholeRice.jpeg';
+import img5 from '../assets/Lunch/img5_MixVegRice.jpeg';
+import img6 from '../assets/Lunch/img6_AlooPalakRice.jpeg';
+import img7 from '../assets/Lunch/img7_DalFryRice.jpeg';
+import img8 from '../assets/Lunch/img8_AlooMatarRice.jpeg';
+import img9 from '../assets/Lunch/img9_VegPulao.jpeg';
+import img10 from '../assets/Lunch/img10_KadiPakodaRice.jpeg';
+import img11 from '../assets/Lunch/img11_ChickenCurryRice.jpeg';
+import img12 from '../assets/Lunch/img12_ChickenBiryani.jpeg';
+import img13 from '../assets/Lunch/img13_ChickenMasalaRice.jpeg';
+import img14 from '../assets/Lunch/img14_ChickenFriedRice.jpeg';
+import img15 from '../assets/Lunch/img15_ChickenCurryRoti.jpeg';
+
+const Lunch = [
   // Vegetarian Items (1-10)
   {
     id: 1,
-    img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=687&auto=format&fit=crop",
+    img: img1,
     name: "Dal Rice",
     price: 80,
     desc: "Simple yellow dal with steamed rice, served with pickle and papad. A staple comfort meal perfect for students.",
-    category: "Vegetarian",
+    category: "lunch",
     rating: 4.2,
-    isVeg: true
+    isVeg: true,
   },
   {
     id: 2,
-    img: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?q=80&w=687&auto=format&fit=crop",
+    img: img2,
     name: "Rajma Chawal",
     price: 90,
     desc: "Kidney beans curry cooked with onion-tomato gravy, served with steamed rice. A protein-rich lunch option.",
-    category: "Vegetarian",
+    category: "lunch",
     rating: 4.5,
-    isVeg: true
+    isVeg: true,
   },
   {
     id: 3,
-    img: "https://images.unsplash.com/photo-1631452180775-4bfb830b5f84?q=80&w=687&auto=format&fit=crop",
+    img: img3,
     name: "Paneer Butter Masala",
     price: 110,
     desc: "Cottage cheese in creamy tomato gravy with rice or rotis. Premium vegetarian option.",
-    category: "Vegetarian",
+    category: "lunch",
     rating: 4.4,
-    isVeg: true
+    isVeg: true,
   },
   {
     id: 4,
-    img: "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?q=80&w=687&auto=format&fit=crop",
+    img: img4,
     name: "Chole Rice",
     price: 90,
     desc: "Chickpea curry served with steamed rice and onions. Rich in protein and filling.",
-    category: "Vegetarian",
+    category: "lunch",
     rating: 4.3,
-    isVeg: true
+    isVeg: true,
   },
   {
     id: 5,
-    img: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?q=80&w=687&auto=format&fit=crop",
+    img: img5,
     name: "Mix Veg Rice",
     price: 85,
     desc: "Seasonal vegetables cooked in a simple gravy, served with rice. Daily vegetarian special.",
-    category: "Vegetarian",
+    category: "lunch",
     rating: 4.1,
-    isVeg: true
+    isVeg: true,
   },
   {
     id: 6,
-    img: "https://images.unsplash.com/photo-1616494674905-17e67ed04ed6?q=80&w=687&auto=format&fit=crop",
+    img: img6,
     name: "Aloo Palak Rice",
     price: 85,
     desc: "Potatoes and spinach curry served with rice. A healthy and economical vegetarian option.",
-    category: "Vegetarian",
+    category: "lunch",
     rating: 4.0,
-    isVeg: true
+    isVeg: true,
   },
   {
     id: 7,
-    img: "https://images.unsplash.com/photo-1590577976322-3d2d6e2130d5?q=80&w=687&auto=format&fit=crop",
+    img: img7,
     name: "Dal Fry Rice",
     price: 85,
     desc: "Tempered yellow dal with jeera rice. Simple, nutritious and economical meal.",
-    category: "Vegetarian",
+    category: "lunch",
     rating: 4.2,
-    isVeg: true
+    isVeg: true,
   },
   {
     id: 8,
-    img: "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?q=80&w=687&auto=format&fit=crop",
+    img: img8,
     name: "Aloo Matar Rice",
     price: 85,
     desc: "Potato and peas curry with rice. Simple, filling vegetarian meal.",
-    category: "Vegetarian",
+    category: "lunch",
     rating: 4.1,
-    isVeg: true
+    isVeg: true,
   },
   {
     id: 9,
-    img: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=687&auto=format&fit=crop",
+    img: img9,
     name: "Veg Pulao",
     price: 95,
     desc: "Rice cooked with mixed vegetables and mild spices. Served with raita. Light and healthy option.",
-    category: "Vegetarian",
+    category: "lunch",
     rating: 4.2,
-    isVeg: true
+    isVeg: true,
   },
   {
     id: 10,
-    img: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?q=80&w=687&auto=format&fit=crop",
+    img: img10,
     name: "Kadi Pakoda Rice",
     price: 90,
     desc: "Yogurt-based curry with gram flour dumplings, served with rice. Wednesday special.",
-    category: "Vegetarian",
+    category: "lunch",
     rating: 4.2,
-    isVeg: true
+    isVeg: true,
   },
 
   // Non-Vegetarian Items (11-15)
   {
     id: 11,
-    img: "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?q=80&w=684&auto=format&fit=crop",
+    img: img11,
     name: "Chicken Curry Rice",
     price: 120,
     desc: "Basic chicken curry with steamed rice. Served with onion rings and pickle. Popular non-veg option.",
-    category: "Non-Vegetarian",
+    category: "lunch",
     rating: 4.3,
-    isVeg: false
+    isVeg: false,
   },
   {
     id: 12,
-    img: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?q=80&w=687&auto=format&fit=crop",
+    img: img12,
     name: "Chicken Biryani",
     price: 130,
     desc: "Aromatic rice cooked with chicken and basic spices. Served with raita. Thursday special.",
-    category: "Non-Vegetarian",
+    category: "lunch",
     rating: 4.6,
-    isVeg: false
+    isVeg: false,
   },
   {
     id: 13,
-    img: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?q=80&w=687&auto=format&fit=crop",
+    img: img13,
     name: "Chicken Masala Rice",
     price: 125,
     desc: "Spiced chicken curry with rice. Served with papad and pickle. Friday special.",
-    category: "Non-Vegetarian",
+    category: "lunch",
     rating: 4.4,
-    isVeg: false
+    isVeg: false,
   },
   {
     id: 14,
-    img: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?q=80&w=687&auto=format&fit=crop",
+    img: img14,
     name: "Chicken Fried Rice",
     price: 110,
     desc: "Chinese style fried rice with chicken. Served with chili sauce. Indo-Chinese option.",
-    category: "Non-Vegetarian",
+    category: "lunch",
     rating: 4.5,
-    isVeg: false
+    isVeg: false,
   },
   {
     id: 15,
-    img: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?q=80&w=687&auto=format&fit=crop",
+    img: img15,
     name: "Chicken Curry Roti",
     price: 115,
     desc: "Basic chicken curry served with 4 rotis. Alternative to rice-based meals.",
-    category: "Non-Vegetarian",
+    category: "lunch",
     rating: 4.3,
-    isVeg: false
-  }
+    isVeg: false,
+  },
 ];
 
-export default CollegeLunchData;
+export default Lunch;
