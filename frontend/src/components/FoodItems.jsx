@@ -1,6 +1,6 @@
 import toast, { Toaster } from "react-hot-toast";
 import FoodCard from "./FoodCard";
-import FoodData from "../data/FoodData";
+import FoodData from "../data/Breakfast";
 
 const FoodItems = () => {
    const handleToast = (name) => toast.success(` added ${name} to cart`);
@@ -15,7 +15,7 @@ const FoodItems = () => {
                   food
                </h1>
             </span>
-            <div className="flex flex-wrap justify-center md:gap-10 md:mx-20">
+            <div className="flex flex-wrap justify-center gap-3 md:gap-10  md:mx-20">
                {FoodData.map((food) => {
                   return (
                      <FoodCard

@@ -7,23 +7,23 @@ const FoodCard = ({ id, name, price, desc, img, rating, handleToast }) => {
 
    return (
       <div
-         className="font-bold w-[250px] bg-white p-5 flex flex-col rounded-2xl gap-2 shadow-xl border-[1px]">
+         className="font-bold w-[10rem] md:w-[15.625rem] bg-white p-5 flex flex-col justify-between rounded-2xl gap-2 shadow-xl border-[1px]">
          <div className="flex  justify-center">
             <img
                src={img}
                alt=""
-               className="w-[140px] h-[140px]  hover:scale-110 cursor-grab transition-all duration-500 ease-in-out rounded-full"
+               className=" w-[6rem] h-[6rem] md:w-[8.75rem] md:h-[8.75rem]  hover:scale-110 cursor-grab transition-all duration-500 ease-in-out rounded-full"
             />
          </div>
          <div className="flex justify-between text-sm">
-            <h2>{name}</h2>
-            <span className="text-red-950 ">₹{price}</span>
+            <h2 className="text-xs md:text-[1rem]">{name}</h2>
+            <span className="text-red-950 text-xs md:text-[1rem] ">₹{price}</span>
          </div>
-         <p className="text-sm font-normal">{desc.slice(0, 40)}...</p>
+         <p className="text-xs md:text-sm font-normal">{desc.slice(0, 40)}...</p>
          <div className="flex justify-between ">
             <span className="flex items-center justify-center">
-               <AiFillStar className="mr-1 text-red-950" /> {rating}
-            </span>
+               <AiFillStar className="text-xs md:text-lg mr-1 text-red-950" /> <span className="text-xs md:text-md">{rating}
+               </span>            </span>
 
             {/* Add to Cart */}
             <button
@@ -31,7 +31,7 @@ const FoodCard = ({ id, name, price, desc, img, rating, handleToast }) => {
                   addToCart({ id, name, price, rating, img });
                   handleToast(name);
                }}
-               className="px-3 py-2 text-sm bg-red-950 text-white rounded-lg bg-yellow hover:text-yellow-500">
+               className="px-2 py-1 text-[0.625rem] rounded-md md:rounded-lg md:px-3 md:py-2 md:text-sm bg-red-950 text-white  bg-yellow hover:text-yellow-500">
                Add to cart
             </button>
          </div>

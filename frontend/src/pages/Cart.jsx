@@ -45,7 +45,7 @@ const Cart = () => {
                   )}
                </Scrollbars>
             </div>
-                  
+
             <div className="px-4 md:px-8">
                {/* Total Price */}
                <div className="space-y-1 text-right md:my-2">
@@ -72,8 +72,6 @@ const Cart = () => {
                </div>
             </div>
          </div>
-
-         <Footer />
       </>
    );
 };
