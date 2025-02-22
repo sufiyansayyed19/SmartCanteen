@@ -1,6 +1,6 @@
 import toast, { Toaster } from "react-hot-toast";
 import FoodCard from "./FoodCard";
-import FoodData from "../data/Sweet";
+import FoodData from "../data/Chips";
 
 const FoodItems = () => {
    const handleToast = (name) => toast.success(` added ${name} to cart`);
