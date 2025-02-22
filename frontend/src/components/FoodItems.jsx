@@ -1,6 +1,8 @@
 import toast, { Toaster } from "react-hot-toast";
 import FoodCard from "./FoodCard";
-import FoodData from "../data/Breakfast";
+import Breakfast from "../data/Breakfast";
+
+
 
 const FoodItems = () => {
    const handleToast = (name) => toast.success(` added ${name} to cart`);
@@ -16,8 +18,9 @@ const FoodItems = () => {
                </h1>
             </span>
             <div className="flex flex-wrap justify-center gap-3 md:gap-10  md:mx-20">
-               {FoodData.map((food) => {
-                  return (
+               {Breakfast.sort(() => Math.random() - 0.5)
+                  .slice(0, 4)
+                  .map((food) => (
                      <FoodCard
                         key={food.id}
                         id={food.id}
@@ -28,8 +31,7 @@ const FoodItems = () => {
                         img={food.img}
                         handleToast={handleToast}
                      />
-                  );
-               })}
+               ))}
             </div>
          </div>
       </>
