@@ -1,13 +1,14 @@
-import img1 from '../assets/Chips/img1_MasalaChips.jpeg';
-import img2 from '../assets/Chips/img2_TomatoChips.jpeg';
-import img3 from '../assets/Chips/img3_Cream&OnionChips.jpeg';
+import img1 from '../assets/Chips/img1_MasalaChips.png';
+import img2 from '../assets/Chips/img2_TomatoChips.png';
+import img3 from '../assets/Chips/img3_Cream&OnionChips.png';
 import img4 from '../assets/Chips/img4_CheeseChips.png';
-import img5 from '../assets/Chips/img5_ChilliChips.png';
-import img6 from '../assets/Chips/img6_SaltedChipspacket.jpeg';
+import img5 from '../assets/Chips/img5_CheeseChips.png';
+import img6 from '../assets/Chips/img6_SaltedChipspacket.png';
 import img7 from '../assets/Chips/img7_LemonChips.png';
 import img8 from '../assets/Chips/img8_PeanutChips.png';
-import img9 from '../assets/Chips/img9_ChatpataChipspacket.png';
+import img9 from '../assets/Chips/img9_ChatpatacChipspacket.png';
 import img10 from '../assets/Chips/img10_CurryChipspacket.png';
+
 
 const ChipSnacks = [
   {
