@@ -49,32 +49,54 @@ const Cart = () => {
                         />
                      ))
                   ) : (
-                     <h1 className="flex justify-center text-3xl font-bold">
-                        Oop! your Cart is Empty
-                     </h1>
-                  )}
+                     <div className="flex flex-col items-center justify-center p-8 text-center">
+                       {/* Cart Icon */}
+                       <div className="text-8xl mb-4">🛒</div>
+       
+                       {/* Funny Message */}
+                       <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                         Your cart is empty... just like my fridge!
+                       </h2>
+                       <p className="text-gray-600 mb-6">
+                         Looks like you haven't added anything tasty yet. Don't worry, we've got plenty of
+                         delicious options waiting for you!
+                       </p>
+       
+                       {/* CTA Button */}
+                       <Link to="/menu">
+                         <button
+                           type="button"
+                           className="px-6 py-2 bg-red-950 text-white rounded-lg hover:bg-red-900 transition duration-300"
+                         >
+                           Explore the Menu
+                         </button>
+                       </Link>
+                     </div>
+                   )}
                </Scrollbars>
             </div>
-
-            <div className="px-4 md:px-8 mt-5">
-               {/* Total Price */}
-               <div className=" text-lg text-right md:my-2">
-                  <p className="font-semibold">
-                     Total amount:   
-                     <span className="font-semibold">  ₹{totalPrice}</span>
-                  </p>
-               </div>
-               <div className="flex justify-between items-center space-x-4">
-                  <PaymentMethod/>
-                  <Link to={"/success"}>
-                        <button
-                           type="button"
-                           className=" mt-3 px-5  py-1 md:px-6 md:py-2 text-sm  bg-red-950 hover:text-yellow-300 text-white rounded-md md:rounded-lg">
-                           Pay
-                        </button>
-                  </Link>    
-               </div>
-            </div>
+            { cartItems.length > 0 ?      
+                  <div className="px-4 md:px-8 mt-5">
+                     {/* Total Price */}
+                     <div className=" text-lg text-right md:my-2">
+                        <p className="font-semibold">
+                           Total amount:   
+                           <span className="font-semibold">  ₹{totalPrice}</span>
+                        </p>
+                     </div>
+                     <div className="flex justify-between items-center space-x-4 mb-10">
+                        <PaymentMethod/>
+                        <Link to={"/success"}>
+                              <button
+                                 type="button"
+                                 className=" mt-3 px-5  py-1 md:px-6 md:py-2 text-sm  bg-red-950 hover:text-yellow-300 text-white rounded-md md:rounded-lg">
+                                 Pay
+                              </button>
+                        </Link>    
+                     </div>
+                  </div>
+                  : null
+               }
          </div>
       </>
    );
