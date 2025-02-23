@@ -14,13 +14,8 @@ import CanteenMenu from './pages/Canteen/CanteenMenu';
 import CanteenOrders from './pages/Canteen/CanteenOrders';
 import CanteenRefunds from './pages/Canteen/CanteenRefunds';
 
-// User imports
-import UserLayout from './pages/User/UserLayout';
-import UserCart from './pages/User/UserCart';
-import UserCheckout from './pages/User/UserCheckout';
-// import UserMenu from './pages/User/UserMenu';
-// import UserOrders from './pages/User/UserOrders';
-import UserProfile from './pages/User/UserProfile';
+
+
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Menu from './pages/Menu';
@@ -48,15 +43,6 @@ function App() {
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/orders" element={<Orders.jsx/>} />
         
-
-        {/* User Routes */}
-        <Route path="/user/:userId/*" element={<UserLayout />}>
-          <Route index element={<Home />} />
-          <Route path="cart" element={<UserCart />} />
-          <Route path="checkout" element={<UserCheckout />} />
-          <Route path="profile" element={<UserProfile />} />
-        </Route>
-
         {/* Canteen Routes */}
         <Route path="/canteen/:canteenId/*" element={<CanteenLayout />}>
           <Route index element={<CanteenDashboard />} />

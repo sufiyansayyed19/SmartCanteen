@@ -5,7 +5,7 @@ import logo from '../assets/img1.png' // Adjust path as needed
 
 const Footer = () => {
    return (
-      <footer className="bg-gray-900 text-white py-1 md:py-2 mt-4 md:mt-7">
+      <footer className="bg-gray-900 text-white py-1 md:py-2  ">
          <div className="container mx-auto flex flex-row justify-between items-center">
             {/* Logo Section */}
             <Link to="/">

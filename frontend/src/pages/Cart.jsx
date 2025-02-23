@@ -37,7 +37,7 @@ const Cart = () => {
             <div className="mt-3">
                <Scrollbars style={{ height: 550 }}>
                   {cartItems.length > 0 ? (
-                     cartItems.map((food) => (
+                     cartItems.slice().reverse().map((food) => (
                         <CartItems
                            key={food.id}
                            id={food.id}

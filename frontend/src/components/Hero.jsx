@@ -1,6 +1,6 @@
 
-import LogoIcon from '../../assets/chefWithFood.png'
-import spinningPlate from '../../assets/spinningPlate.png'
+import LogoIcon from '../assets/chefWithFood.png'
+import spinningPlate from '../assets/spinningPlate.png'
 import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
@@ -9,7 +9,7 @@ const Hero = () => {
     return (
       <section id='hero' className="  flex w-full ">
       {/* Flex Container */}
-      <div className='container md:h-[25rem] h-[18.75rem] w-full flex flex-col-reverse items-center px-6 mx-auto mt-3 md:mt-4   md:flex-row bg-orange-100'>
+      <div className='container  md:h-[25rem] h-[20rem] w-full flex flex-col-reverse items-center px-6 mx-auto mt-3 md:mt-4   md:flex-row bg-orange-100'>
         {/* Left Item */}
         <div className='flex flex-col mb-4  md:w-1/2 items-center'>
           <h1 className='max-w-md text-xl text-red-950 font-bold text-center md:text-[2.5rem] md:text-left md:p-2 leading-normal'>
@@ -29,7 +29,7 @@ const Hero = () => {
         </div>
         {/* Image */}
         
-        <div className='md:w-5/6 flex flex-row-reverse justify-center md:gap-20'>
+        <div className='md:w-5/6 flex flex-row-reverse justify-center md:gap-20 '>
           <img className="h-36  md:h-80 pt-1 md:mt-4 " src={LogoIcon} alt='' />
           <img 
             className="h-36 md:h-80 pt-1 md:mt-4 animate-[spin_25s_linear_infinite] " 
