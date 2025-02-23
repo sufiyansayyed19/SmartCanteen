@@ -58,7 +58,7 @@ const Cart = () => {
                          Your cart is empty... just like my fridge!
                        </h2>
                        <p className="text-gray-600 mb-6">
-                         Looks like you haven't added anything tasty yet. Don't worry, we've got plenty of
+                         Looks like you haven&apos;t added anything tasty yet. Don&apos;t worry, we&apos;ve got plenty of
                          delicious options waiting for you!
                        </p>
        

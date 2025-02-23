@@ -1,78 +1,72 @@
-import useShopStore from "../store/shopeStore";
-import Title from "../components/Title";
+import useOrderStore from "../store/OrderStore"; // Zustand store for orders
 
 const Orders = () => {
-  const { orders, products, currency } = useShopStore();
+  // Fetch ordered items from the store
+  const orderedItems = useOrderStore((state) => state.orders);
 
-  // Function to format the current date
-  const formatDate = (date) => {
-    const options = { day: "2-digit", month: "short", year: "numeric" };
-    return date.toLocaleDateString("en-US", options);
-  };
-
-  // Get the current date
-  const currentDate = formatDate(new Date());
+  // Calculate Total Price
+  const totalPrice = orderedItems.reduce(
+    (total, item) => total + item.qty * item.price,
+    0
+  );
 
   return (
-    <div className="pt-16 border-t">
-      <div className="mb-3 text-2xl">
-        <Title text1={"MY"} text2={"ORDERS"} />
-      </div>
+    <div className="min-h-screen bg-gray-50 p-6">
+      <div className="max-w-4xl mx-auto">
+        {/* Page Header */}
+        <h1 className="text-3xl font-bold text-gray-800 mb-6">Your Orders</h1>
 
-      {orders.length === 0 ? (
-        <p className="text-gray-500">You have no orders.</p>
-      ) : (
-        <div>
-          {orders.map((order, index) => {
-            const productData = products.find(
-              (product) => product._id === order._id
-            );
-
-            return (
+        {/* Display Ordered Items */}
+        {orderedItems.length > 0 ? (
+          <div className="space-y-6">
+            {orderedItems.map((item) => (
               <div
-                key={index}
-                className="py-4 border-t border-b text-gray-700 flex flex-col md:flex-row md:items-center md:justify-between g4"
+                key={item.id}
+                className="bg-white p-6 rounded-lg shadow-md flex items-center justify-between"
               >
-                <div className="flex items-start gap-6">
+                {/* Item Image and Details */}
+                <div className="flex items-center">
                   <img
-                    src={productData?.image[0]}
-                    alt={productData?.name || "Product"}
-                    className="w-16 sm:w-20"
+                    src={item.img}
+                    alt={item.name}
+                    className="w-20 h-20 object-cover rounded-md"
                   />
-
-                  <div>
-                    <p className="sm:text-base font-medium">
-                      {productData?.name}
-                    </p>
-
-                    <div className="flex items-center gap-5 mt-2 text-base text-gray-700">
-                      <p>
-                        {currency}
-                        {productData?.price}
-                      </p>
-                      <p>Quantity: {order.quantity}</p>
-                      <p>Size: {order.size}</p>
-                    </div>
-                    <p className="mt-2">
-                      Date: <span className="text-gray-400">{currentDate}</span>
-                    </p>
+                  <div className="ml-4">
+                    <h2 className="text-xl font-semibold text-gray-800">
+                      {item.name}
+                    </h2>
+                    <p className="text-gray-600">₹{item.price}</p>
+                    <p className="text-gray-600">Quantity: {item.qty}</p>
                   </div>
                 </div>
 
-                <div className="flex justify-between md:w-1/2">
-                  <div className="flex items-center gap-2">
-                    <p className="min-w-2 h-2 rounded-full bg-green-400"></p>
-                    <p className="text-sm md:text-base">Ready to ship</p>
-                  </div>
-                  <button className="border px-4 py-2 text-sm font-medium rounded-sm text-gray-700">
-                    Track Order
-                  </button>
-                </div>
+                {/* Total Price for the Item */}
+                <p className="text-lg font-semibold text-gray-800">
+                  ₹{item.qty * item.price}
+                </p>
               </div>
-            );
-          })}
-        </div>
-      )}
+            ))}
+
+            {/* Total Price */}
+            <div className="text-right mt-6">
+              <p className="text-xl font-semibold text-gray-800">
+                Total Amount: <span className="text-orange-600">₹{totalPrice}</span>
+              </p>
+            </div>
+          </div>
+        ) : (
+          // Empty Orders Message
+          <div className="text-center py-12">
+            <div className="text-6xl mb-4">🍕</div>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+              No orders yet!
+            </h2>
+            <p className="text-gray-600">
+              Looks like you haven&apos;t ordered anything yet. Time to explore the menu!
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
