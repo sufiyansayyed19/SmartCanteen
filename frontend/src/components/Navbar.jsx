@@ -17,10 +17,10 @@ const Navbar = () => {
                 <div className='container mx-auto flex justify-between items-center pt-5 h-14'>
                     {/* Logo Section */}
                     <Link to='/'>    
-                        <div className='text-2xl flex items-center font-bold uppercase p-4'>
+                        <div className='text-xl md:text-2xl flex items-center font-bold uppercase p-4'>
                             <p className='text-orange-600 translate-y-1'>Smart</p>
                             <p className='text-green-700 translate-y-1'>Canteen</p>
-                            <img className='w-9 h-8' src={logo} alt=''/>
+                            <img className='w-5 h-6 md:w-9 md:h-8 ml-1' src={logo} alt=''/>
                         </div>
                     </Link>
                     {/* Menu Section */}
@@ -45,11 +45,11 @@ const Navbar = () => {
                         <button className=' hidden md:block font-semibold mt-2 '><CiSearch/></button>
                         
                         <Link to="/cart" className = "relative mt-2">
-                            <button className=' font-semibold  '><PiShoppingCartThin/></button>
+                            <button className=' font-semibold text-2xl '><PiShoppingCartThin/></button>
                             <p className="absolute right-[-1px] top-[-2px] w-3 h-3 text-[6px] md:w-4 md:h-4 md:text-[8px] text-center leading-relaxed bg-black text-white aspect-square rounded-full">0</p>
                         </Link>
                         <div className='group relative mt-2'>
-                            <button className=' font-semibold '><VscAccount/></button>
+                            <button className=' font-semibold text-xl '><VscAccount/></button>
                             {/* <img className='w-5 cursor-pointer'  src={assets.profile_icon} alt="profile" /> */}
                             <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
                                 <div className="flex flex-col w-36 gap-2 px-5 py-3 bg-slate-100 text-gray-500 rounded text-sm ">

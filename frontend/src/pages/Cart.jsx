@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Scrollbars } from "react-custom-scrollbars-2";
 import useCartStore from "../store/cartStore"; // Zustand store
-import Footer from "../components/Footer";
 import CartItems from "../components/CartItems";
 
 const Cart = () => {

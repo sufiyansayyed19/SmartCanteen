@@ -1,8 +1,8 @@
-import img1 from '../assets/Sweet/img1_ChocolatePastry.jpeg';
-import img2 from '../assets/Sweet/img2_VanillaCakeslice.jpeg';
-import img3 from '../assets/Sweet/img3_RedVelvetCupcake.jpeg';
-import img4 from '../assets/Sweet/img4_GulabJamun.jpeg';
-import img5 from '../assets/Sweet/img5_Rasgulla.jpeg';
+import img1 from '../assets/Sweets/img1_ChocolatePastry.jpeg';
+import img2 from '../assets/Sweets/img2_VanillaCakeslice.jpeg';
+import img3 from '../assets/Sweets/img3_RedVelvetCupcake.jpeg';
+import img4 from '../assets/Sweets/img4_GulabJamun.jpeg';
+import img5 from '../assets/Sweets/img5_Rasgulla.jpeg';
 
 const Sweet = [
   {
