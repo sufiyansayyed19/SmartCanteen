@@ -31,7 +31,7 @@ const FoodCard = ({ id, name, price, desc, img, rating, handleToast }) => {
                   addToCart({ id, name, price, rating, img });
                   handleToast(name);
                }}
-               className="px-2 py-1 text-[0.625rem] rounded-md md:rounded-lg md:px-3 md:py-2 md:text-sm bg-red-950 text-white  bg-yellow hover:text-yellow-500">
+               className="px-2 py-1 text-[0.625rem] rounded-md md:rounded-lg md:px-3 md:py-2 md:text-sm bg-red-950 text-white  bg-yellow active:text-yellow-500  hover:text-yellow-500">
                Add to cart
             </button>
          </div>

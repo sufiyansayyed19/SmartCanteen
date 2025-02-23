@@ -18,12 +18,12 @@ const Hero = () => {
           <h1 className='max-w-md text-xl text-red-950 font-bold text-center md:text-[2.5rem] md:text-left '>
             delicious? 🍟🍔🥤 
           </h1>
-          <p className='max-w-sm  text-center text-sm md:text-lg  md:mt-6'>
-            Smart Canteen serves up fresh flavors, fast!<span className='text-center'>Taste the magic, fuel your day! 🚀</span>
+          <p className='max-w-sm  text-center text-xs my-2 md:text-lg  md:mt-6'>
+            Smart Canteen serves up fresh flavors, fast! Taste the magic, fuel your day! 🚀
           </p>
           <div className="flex w-max  gap-6 md:gap-10 mt-2 md:mt-6 ">
             <button onClick={()=> navigate('/menu')} className="px-3 py-1 md:px-6 md:py-2 text-sm  bg-red-950 text-white rounded-md md:rounded-lg ">Menu</button>
-            <button onClick={()=> navigate('/user/:userId/orders')} className="px-3 py-1 text-sm bg-red-950 text-white rounded-md md:rounded-lg ">Order Now</button>
+            <button onClick={()=> navigate('/Orders')} className="px-3 py-1 text-sm bg-red-950 text-white rounded-md md:rounded-lg ">Order Now</button>
           </div>
           
         </div>

@@ -9,9 +9,9 @@ const CartItems = ({ id, img, name, price, rating, qty }) => {
 
    return (
       <div className="shadow-md rounded-xl p-4 bg-white flex flex-col">
-         <div className="flex items-center space-x-4">
+         <div className="flex items-center space-x-4 ml-2">
             <img
-               className="w-36 h-24 object-cover rounded-lg"
+               className="w-20 h-24 object-cover rounded-lg"
                src={img}
                alt={name}
             />
@@ -33,8 +33,8 @@ const CartItems = ({ id, img, name, price, rating, qty }) => {
          </div>
 
          {/* Quantity Controls */}
-         <div className="flex items-center justify-between mt-3 ml-3">
-            <div className="flex items-center space-x-2">
+         <div className="flex items-center justify-between mt-4">
+            <div className="flex items-center justify-start ">
                <button
                   onClick={() => qty > 1 && decrementQty(id)}
                   className="bg-yellow-500 text-white p-2 rounded-full"

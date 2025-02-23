@@ -22,7 +22,7 @@ const FoodItems = () => {
 
    return (
       <>
-         <Toaster position="top-center" reverseOrder={false} />
+         <Toaster position="top-center" reverseOrder={false} toastOptions={{ duration: 2000 }} />
          <div className="my-1">
             <div className="flex items-center justify-center my-6 md:my-7 ">
                   <div className="h-[2px] w-20 bg-gray-400"></div>

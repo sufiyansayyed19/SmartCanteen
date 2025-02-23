@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 import { Scrollbars } from "react-custom-scrollbars-2";
 import useCartStore from "../store/cartStore"; // Zustand store
 import CartItems from "../components/CartItems";
+import PaymentMethod from "../components/PaymentMethod";
+
+
 
 const Cart = () => {
    const cartItems = useCartStore((state) => state.cart);
-
    // Calculate Total Price
    const totalPrice = cartItems.reduce(
       (total, item) => total + item.qty * item.price,
@@ -14,17 +16,26 @@ const Cart = () => {
 
    return (
       <>
-         <div className="flex flex-col max-w-3xl mx-auto space-y-4 sm:p-10 sm:px-2">
-            <div className="px-4 md:px-8">
-               <h2 className="text-3xl font-bold ">Your cart</h2>
-               <p className="mt-3 text-sm font-medium text-gray-700 ">
-                  Add your items to the cart and order!
-               </p>
+         <div className="flex flex-col min-h-full max-w-3xl mt-7 mx-auto md:space-y-4 ">
+            <div className=" flex justify-between px-5 md:mt-3 ">
+               <div className="flex items-center">
+                  <div className="mr-2 md:mr-3 h-[2px] w-8 md:w-20 bg-gray-400"></div>
+                  <h2 className="text-xl md:text-3xl font-bold text-red-950 ">Your cart</h2>
+                  <div className="ml-2 md:ml-3 h-[2px] w-8 md:w-20 bg-gray-400"></div>
+               </div>
+               <Link to={"/menu"}>
+                     <button
+                        type="button"
+                        className="px-3 py-1 md:px-6 md:py-2 text-sm  bg-red-950 text-white rounded-md ">
+                        Back to Menu
+                     </button>
+               </Link>
+               
             </div>
 
-            {/* Cart Items */}
-            <div>
-               <Scrollbars style={{ height: 350 }}>
+            
+            <div className="mt-3">
+               <Scrollbars style={{ height: 550 }}>
                   {cartItems.length > 0 ? (
                      cartItems.map((food) => (
                         <CartItems
@@ -39,35 +50,29 @@ const Cart = () => {
                      ))
                   ) : (
                      <h1 className="flex justify-center text-3xl font-bold">
-                        Your cart is empty!
+                        Oop! your Cart is Empty
                      </h1>
                   )}
                </Scrollbars>
             </div>
 
-            <div className="px-4 md:px-8">
+            <div className="px-4 md:px-8 mt-5">
                {/* Total Price */}
-               <div className="space-y-1 text-right md:my-2">
-                  <p>
-                     Total amount:
-                     <span className="font-semibold"> ₹{totalPrice}</span>
+               <div className=" text-lg text-right md:my-2">
+                  <p className="font-semibold">
+                     Total amount:   
+                     <span className="font-semibold">  ₹{totalPrice}</span>
                   </p>
                </div>
-               <div className="flex justify-end space-x-4">
-                  <Link to={"/menu"}>
-                     <button
-                        type="button"
-                        className="px-3 py-2 text-sm font-semibold text-black border border-black rounded-md shadow-sm">
-                        Back to shop
-                     </button>
-                  </Link>
+               <div className="flex justify-between items-center space-x-4">
+                  <PaymentMethod/>
                   <Link to={"/success"}>
-                     <button
-                        type="button"
-                        className="px-3 py-2 text-sm font-semibold text-black rounded-md shadow-sm bg-yellow hover:bg-black hover:text-white">
-                        Checkout
-                     </button>
-                  </Link>
+                        <button
+                           type="button"
+                           className=" mt-3 px-5  py-1 md:px-6 md:py-2 text-sm  bg-red-950 hover:text-yellow-300 text-white rounded-md md:rounded-lg">
+                           Pay
+                        </button>
+                  </Link>    
                </div>
             </div>
          </div>

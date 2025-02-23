@@ -19,7 +19,7 @@ import UserLayout from './pages/User/UserLayout';
 import UserCart from './pages/User/UserCart';
 import UserCheckout from './pages/User/UserCheckout';
 // import UserMenu from './pages/User/UserMenu';
-import UserOrders from './pages/User/UserOrders';
+// import UserOrders from './pages/User/UserOrders';
 import UserProfile from './pages/User/UserProfile';
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -31,6 +31,7 @@ import Contact from './pages/Contact';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Cart from './pages/Cart';
+import Orders from './pages/Orders';
 function App() {
   return (
     <>
@@ -45,6 +46,7 @@ function App() {
         <Route path="/about" element={<About/>}/>
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/cart" element={<Cart/>}/>
+        <Route path="/orders" element={<Orders.jsx/>} />
         
 
         {/* User Routes */}
@@ -52,7 +54,6 @@ function App() {
           <Route index element={<Home />} />
           <Route path="cart" element={<UserCart />} />
           <Route path="checkout" element={<UserCheckout />} />
-          <Route path="orders" element={<UserOrders />} />
           <Route path="profile" element={<UserProfile />} />
         </Route>
 
