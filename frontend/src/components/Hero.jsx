@@ -7,7 +7,7 @@ const Hero = () => {
   const navigate = useNavigate();
 
     return (
-      <section id='hero' className="  flex w-full ">
+      <section id='hero' className="  flex w-full md:mt-3 ">
       {/* Flex Container */}
       <div className='container  md:h-[25rem] h-[20rem] w-full flex flex-col-reverse items-center px-6 mx-auto    md:flex-row bg-orange-100'>
         {/* Left Item */}

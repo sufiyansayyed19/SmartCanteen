@@ -42,6 +42,8 @@ const useCartStore = create((set) => ({
     })),
 
   setCartItems: (value) => set({ cartItems: value }), 
+
+  
 }));
 
 export default useCartStore;
