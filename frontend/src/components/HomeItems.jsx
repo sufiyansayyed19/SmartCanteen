@@ -1,4 +1,4 @@
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import FoodCard from "./FoodCard";
 import { motion } from "framer-motion";
 
@@ -23,7 +23,7 @@ const HomeItems = () => {
 
    return (
       <>
-         <Toaster position="top-center" reverseOrder={false} toastOptions={{ duration: 2000 }} />
+         
          <div className="my-1">
             <div className="flex items-center justify-center my-6 md:my-7 ">
                   <div className="h-[2px] w-20 bg-gray-400"></div>

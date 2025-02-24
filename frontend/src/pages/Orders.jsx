@@ -1,44 +1,20 @@
 import { Link } from "react-router-dom";
-
+import useOrderStore from "../store/OrderStore";
 const Orders = () => {
-  // Dummy order data with status
-  let orderedItems = [
-    {
-      id: 1,
-      name: "Margherita Pizza",
-      price: 299,
-      qty: 2,
-      img: "https://via.placeholder.com/150", // Placeholder image URL
-      status: "Paid", // Added status
-    },
-    {
-      id: 2,
-      name: "Pepperoni Pizza",
-      price: 399,
-      qty: 1,
-      img: "https://via.placeholder.com/150", // Placeholder image URL
-      status: "Not Paid", // Added status
-    },
-    {
-      id: 3,
-      name: "Veggie Burger",
-      price: 199,
-      qty: 3,
-      img: "https://via.placeholder.com/150", // Placeholder image URL
-      status: "Paid", // Added status
-    },
-  ];
-
-  orderedItems = [];
+  const orderItems = useOrderStore((state) => state.orderItems) ;
 
   // Calculate Total Price
-  const totalPrice = orderedItems.reduce(
-    (total, item) => total + item.qty * item.price,
-    0
-  );
+  let totalPrice; 
+  if (orderItems) {
+    totalPrice = orderItems.reduce(
+      (total, item) => total + item.qty * item.price,
+      0
+    );
+  }
+  
 
   // Calculate Paid Amount
-  const paidAmount = orderedItems.reduce((total, item) => {
+  const paidAmount = orderItems.reduce((total, item) => {
     return item.status === "Paid" ? total + item.qty * item.price : total;
   }, 0);
 
@@ -56,9 +32,9 @@ const Orders = () => {
         </div>
 
         {/* Display Ordered Items */}
-        {orderedItems.length > 0 ? (
+        {orderItems.length > 0 ? (
           <div className="space-y-6">
-            {orderedItems.map((item) => (
+            {orderItems.map((item) => (
               <div
                 key={item.id}
                 className="bg-white p-6 rounded-lg shadow-md flex items-center justify-between"

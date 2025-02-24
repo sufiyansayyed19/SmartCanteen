@@ -3,16 +3,35 @@ import { Scrollbars } from "react-custom-scrollbars-2";
 import useCartStore from "../store/cartStore"; // Zustand store
 import CartItems from "../components/CartItems";
 import PaymentMethod from "../components/PaymentMethod";
-
-
+import toast from "react-hot-toast";
+import useOrderStore from "../store/OrderStore";
+import useAppStore from "../store/appStore";
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
-   const cartItems = useCartStore((state) => state.cart);
+   
+   const { isPaymentChosen, setIsPaymentChosen} = useAppStore();
+   const cartItems = useCartStore((state) => state.cartItems);
+   const { setOrderItems } = useOrderStore();
+   const { setCartItems } = useCartStore();
+   const navigate = useNavigate()
    // Calculate Total Price
    const totalPrice = cartItems.reduce(
       (total, item) => total + item.qty * item.price,
       0
    );
+
+   const handlePayButton = ()=>{
+      
+      if (!isPaymentChosen) {
+         toast.error("Please select a payment method");
+       } else {
+         setOrderItems(cartItems);
+         setCartItems([]);
+         setIsPaymentChosen(false);
+         navigate('/orders');
+       }
+   }
 
    return (
       <>
@@ -86,13 +105,12 @@ const Cart = () => {
                      </div>
                      <div className="flex justify-between items-center space-x-4 mb-10">
                         <PaymentMethod/>
-                        <Link to={"/success"}>
-                              <button
-                                 type="button"
-                                 className=" mt-3 px-5  py-1 md:px-6 md:py-2 text-sm  bg-red-950 hover:text-yellow-300 text-white rounded-md md:rounded-lg">
-                                 Pay
-                              </button>
-                        </Link>    
+                        <button
+                           onClick={handlePayButton}
+                           type="button"
+                           className=" mt-3 px-5  py-1 md:px-6 md:py-2 text-sm  bg-red-950 hover:text-yellow-300 text-white rounded-md md:rounded-lg">
+                           Pay
+                        </button>
                      </div>
                   </div>
                   : null

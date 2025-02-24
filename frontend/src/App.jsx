@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-
+import { Toaster } from "react-hot-toast";
 // Admin imports
 import AdminCanteens from './pages/Admin/AdminCanteens';
 import AdminChatSupport from './pages/Admin/AdminChatSupport';
@@ -29,7 +29,7 @@ import Orders from './pages/Orders';
 function App() {
   return (
     <>
-    
+    <Toaster position="top-center" reverseOrder={false} toastOptions={{ duration: 2000 }} />
     <Router>
       <ConditionalNavbar />
       <Routes>
