@@ -9,7 +9,7 @@ const Hero = () => {
     return (
       <section id='hero' className="  flex w-full ">
       {/* Flex Container */}
-      <div className='container  md:h-[25rem] h-[20rem] w-full flex flex-col-reverse items-center px-6 mx-auto mt-3 md:mt-4   md:flex-row bg-orange-100'>
+      <div className='container  md:h-[25rem] h-[20rem] w-full flex flex-col-reverse items-center px-6 mx-auto    md:flex-row bg-orange-100'>
         {/* Left Item */}
         <div className='flex flex-col mb-4  md:w-1/2 items-center'>
           <h1 className='max-w-md text-xl text-red-950 font-bold text-center md:text-[2.5rem] md:text-left md:p-2 leading-normal'>
