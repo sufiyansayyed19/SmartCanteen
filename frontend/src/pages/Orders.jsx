@@ -1,12 +1,15 @@
+import { Link } from "react-router-dom";
+
 const Orders = () => {
-  // Dummy order data
-  const orderedItems = [
+  // Dummy order data with status
+  let orderedItems = [
     {
       id: 1,
       name: "Margherita Pizza",
       price: 299,
       qty: 2,
       img: "https://via.placeholder.com/150", // Placeholder image URL
+      status: "Paid", // Added status
     },
     {
       id: 2,
@@ -14,6 +17,7 @@ const Orders = () => {
       price: 399,
       qty: 1,
       img: "https://via.placeholder.com/150", // Placeholder image URL
+      status: "Not Paid", // Added status
     },
     {
       id: 3,
@@ -21,14 +25,25 @@ const Orders = () => {
       price: 199,
       qty: 3,
       img: "https://via.placeholder.com/150", // Placeholder image URL
+      status: "Paid", // Added status
     },
   ];
+
+  orderedItems = [];
 
   // Calculate Total Price
   const totalPrice = orderedItems.reduce(
     (total, item) => total + item.qty * item.price,
     0
   );
+
+  // Calculate Paid Amount
+  const paidAmount = orderedItems.reduce((total, item) => {
+    return item.status === "Paid" ? total + item.qty * item.price : total;
+  }, 0);
+
+  // Calculate Remaining Amount
+  const remainingAmount = totalPrice - paidAmount;
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
@@ -59,8 +74,16 @@ const Orders = () => {
                     <h2 className=" md:text-xl font-semibold text-gray-800">
                       {item.name}
                     </h2>
-                    <p className="text-sm text-gray-600">₹{item.price}</p>
+                    <p className="font-semibold text-sm text-gray-600">₹{item.price}</p>
                     <p className="text-sm text-gray-600">Quantity: {item.qty}</p>
+                    {/* Display Status */}
+                    <p
+                      className={`text-sm font-semibold ${
+                        item.status === "Paid" ? "text-green-600" : "text-red-600"
+                      }`}
+                    >
+                      Status: {item.status}
+                    </p>
                   </div>
                 </div>
 
@@ -71,10 +94,16 @@ const Orders = () => {
               </div>
             ))}
 
-            {/* Total Price */}
-            <div className="text-right mt-6">
+            {/* Total Price, Paid Amount, and Remaining Amount */}
+            <div className="text-right mt-6 space-y-2">
               <p className="md:text-xl font-semibold text-gray-800">
                 Total Amount: <span className="text-orange-600">₹{totalPrice}</span>
+              </p>
+              <p className="md:text-lg font-semibold text-green-600">
+                Paid Amount: ₹{paidAmount}
+              </p>
+              <p className="md:text-lg font-semibold text-red-600">
+                Remaining Amount: ₹{remainingAmount}
               </p>
             </div>
           </div>
@@ -88,6 +117,15 @@ const Orders = () => {
             <p className="text-gray-600">
               Looks like you haven&apos;t ordered anything yet. Time to explore the menu!
             </p>
+            {/* CTA Button */}
+            <Link to="/menu">
+                <button
+                  type="button"
+                  className="mt-4 px-6 py-2 bg-red-950 text-white rounded-lg hover:bg-red-900 transition duration-300"
+                >
+                  Explore the Menu
+                </button>
+            </Link>
           </div>
         )}
       </div>

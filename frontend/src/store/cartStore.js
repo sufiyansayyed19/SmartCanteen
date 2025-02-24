@@ -4,22 +4,24 @@ const useCartStore = create((set) => ({
   cart: [],
 
   addToCart: (item) => {
-    set((state) => {
-      const existingItem = state.cart.find((cartItem) => cartItem.id === item.id);
-      
-      if (existingItem) {
-        return {
-          cart: state.cart.map((cartItem) =>
-            cartItem.id === item.id
-              ? { ...cartItem, qty: cartItem.qty + 1 } // Use "qty"
-              : cartItem
-          ),
-        };
-      } else {
-        return { cart: [...state.cart, { ...item, qty: 1 }] }; // Use "qty"
-      }
-    });
-  },
+   set((state) => {
+     const existingItem = state.cart.find((cartItem) => cartItem.id === item.id);
+
+     if (existingItem) {
+       return {
+         cart: state.cart.map((cartItem) =>
+           cartItem.id === item.id
+             ? { ...cartItem, qty: cartItem.qty + 1 } // Increment quantity
+             : cartItem
+         ),
+       };
+     } else {
+       return {
+         cart: [...state.cart, { ...item, qty: 1, status: item.status || "Due" }], // Add status
+       };
+     }
+   });
+ },
 
   removeFromCart: (id) =>
     set((state) => ({

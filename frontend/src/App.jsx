@@ -20,7 +20,6 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Menu from './pages/Menu';
 import About from './pages/About';
-import Contact from './pages/Contact';
 
 // Components
 import Navbar from './components/Navbar';
@@ -39,7 +38,6 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/about" element={<About/>}/>
-        <Route path="/contact" element={<Contact/>}/>
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/orders" element={<Orders/>} />
         

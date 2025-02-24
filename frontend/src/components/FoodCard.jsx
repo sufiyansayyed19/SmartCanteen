@@ -3,8 +3,7 @@ import useCartStore from "../store/cartStore";
 import PropTypes from "prop-types";
 
 const FoodCard = ({ id, name, price, desc, img, rating, handleToast }) => {
-   const { addToCart } = useCartStore();
-
+   const { addToCart, cart } = useCartStore();
    return (
       <div
          className="font-bold w-[10rem] md:w-[15.625rem] bg-white p-5 flex flex-col justify-between rounded-2xl gap-2 shadow-xl border-[1px]">
@@ -26,17 +25,19 @@ const FoodCard = ({ id, name, price, desc, img, rating, handleToast }) => {
                </span>            </span>
 
             {/* Add to Cart */}
-            <button
-               onClick={() => {
-                  addToCart({ id, name, price, rating, img });
-                  handleToast(name);
-               }}
-               className="px-2 py-1 text-[0.625rem] rounded-md md:rounded-lg md:px-3 md:py-2 md:text-sm bg-red-950 text-white  bg-yellow active:text-yellow-500  hover:text-yellow-500">
-               Add to cart
-            </button>
+               <button
+                  onClick={ async () => {
+                     addToCart({ id, name, price, rating, img, status: "Due" });
+                     handleToast(name);
+                     console.log(cart);
+                  }}
+                  className="px-2 py-1 text-[0.625rem] rounded-md md:rounded-lg md:px-3 md:py-2 md:text-sm bg-red-950 text-white   hover:text-yellow-500">
+                  Add to cart
+               </button>
          </div>
       </div>
    );
+   
 };
 
 FoodCard.propTypes = {
@@ -45,7 +46,9 @@ FoodCard.propTypes = {
    price: PropTypes.number.isRequired,     // price must be a number
    desc: PropTypes.string.isRequired,      // desc must be a string
    img: PropTypes.string.isRequired,       // img must be a string (URL)
-   rating: PropTypes.number,               // rating must be a number (optional)
+   rating: PropTypes.number,              // rating must be a number (optional)
    handleToast: PropTypes.func.isRequired, // handleToast must be a function
 };
+
+
 export default FoodCard;
