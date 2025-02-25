@@ -18,6 +18,7 @@ const Combos = [
     desc: "Crispy golden fries served with a chilled glass of coke. Perfect snack combo.",
     category: "Combos",
     rating: 4.5,
+    isVeg: true,
   },
   {
     id: 2,
@@ -27,6 +28,7 @@ const Combos = [
     desc: "A delicious veg burger with fresh veggies and a chilled glass of coke. Great for a quick meal.",
     category: "Combos",
     rating: 4.6,
+    isVeg: true,
   },
   {
     id: 3,
@@ -36,6 +38,7 @@ const Combos = [
     desc: "Juicy chicken burger served with crispy fries. A classic combo for non-veg lovers.",
     category: "Combos",
     rating: 4.7,
+    isVeg: false,
   },
   {
     id: 4,
@@ -45,6 +48,7 @@ const Combos = [
     desc: "A medium-sized pizza with your favorite toppings and a chilled glass of coke. Perfect for sharing.",
     category: "Combos",
     rating: 4.8,
+    isVeg: true,
   },
   {
     id: 5,
@@ -54,6 +58,7 @@ const Combos = [
     desc: "Crispy nachos served with cheesy dip and a chilled glass of coke. Ideal for movie nights.",
     category: "Combos",
     rating: 4.4,
+    isVeg: true,
   },
   {
     id: 6,
@@ -63,6 +68,7 @@ const Combos = [
     desc: "Creamy pasta served with buttery garlic bread. A satisfying meal combo.",
     category: "Combos",
     rating: 4.6,
+    isVeg: true,
   },
   {
     id: 7,
@@ -72,6 +78,7 @@ const Combos = [
     desc: "Grilled sandwich with fresh veggies and crispy fries. A light and tasty combo.",
     category: "Combos",
     rating: 4.3,
+    isVeg: true,
   },
   {
     id: 8,
@@ -81,6 +88,7 @@ const Combos = [
     desc: "Spicy chicken wings served with a chilled glass of coke. Perfect for game nights.",
     category: "Combos",
     rating: 4.7,
+    isVeg: false,
   },
   {
     id: 9,
@@ -90,6 +98,7 @@ const Combos = [
     desc: "Spicy and buttery pav bhaji served with a chilled glass of coke. A Mumbai street food favorite.",
     category: "Combos",
     rating: 4.5,
+    isVeg: true,
   },
   {
     id: 10,
@@ -99,6 +108,7 @@ const Combos = [
     desc: "Steamed or fried momos served with a chilled glass of coke. A popular Indo-Chinese combo.",
     category: "Combos",
     rating: 4.6,
+    isVeg: true,
   },
 ];
 
