@@ -16,7 +16,7 @@ const Drinks = [
     name: "Coca-Cola 500ml",
     price: 25,
     desc: "Classic Coca-Cola, the world's favorite soft drink. Perfectly refreshing.",
-    category: "Cold Drinks",
+    category: "drink", // Changed from "Cold Drinks" to "drink"
     rating: 4.7,
   },
   {
@@ -25,7 +25,7 @@ const Drinks = [
     name: "Pepsi 500ml",
     price: 25,
     desc: "The bold and refreshing taste of Pepsi. A great choice for any occasion.",
-    category: "Cold Drinks",
+    category: "drink", // Changed from "Cold Drinks" to "drink"
     rating: 4.6,
   },
   {
@@ -34,7 +34,7 @@ const Drinks = [
     name: "Sprite 500ml",
     price: 25,
     desc: "Crisp and clear lemon-lime flavored soda. Perfect for a refreshing break.",
-    category: "Cold Drinks",
+    category: "drink", // Changed from "Cold Drinks" to "drink"
     rating: 4.5,
   },
   {
@@ -43,7 +43,7 @@ const Drinks = [
     name: "Fanta 500ml",
     price: 25,
     desc: "Fruity and fizzy orange-flavored soda. A burst of fun in every sip.",
-    category: "Cold Drinks",
+    category: "drink", // Changed from "Cold Drinks" to "drink"
     rating: 4.4,
   },
   {
@@ -52,7 +52,7 @@ const Drinks = [
     name: "Thums Up 500ml",
     price: 25,
     desc: "Strong and fizzy cola with a bold taste. India's favorite cola.",
-    category: "Cold Drinks",
+    category: "drink", // Changed from "Cold Drinks" to "drink"
     rating: 4.6,
   },
   {
@@ -61,7 +61,7 @@ const Drinks = [
     name: "7UP",
     price: 15,
     desc: "Crisp and refreshing lemon-lime soda with a clean, clear taste.",
-    category: "Cold Drinks",
+    category: "drink", // Changed from "Cold Drinks" to "drink"
     rating: 4.4,
   },
   {
@@ -70,7 +70,7 @@ const Drinks = [
     name: "Mountain Dew",
     price: 18,
     desc: "Citrus-flavored soda with a kick of energy. For the adventurous.",
-    category: "Cold Drinks",
+    category: "drink", // Changed from "Cold Drinks" to "drink"
     rating: 4.5,
   },
   {
@@ -79,7 +79,7 @@ const Drinks = [
     name: "Limca",
     price: 15,
     desc: "Lime and lemon-flavored soda that refreshes like no other.",
-    category: "Cold Drinks",
+    category: "drink", // Changed from "Cold Drinks" to "drink"
     rating: 4.3,
   },
   {
@@ -88,7 +88,7 @@ const Drinks = [
     name: "Mirinda",
     price: 15,
     desc: "Fruity and fizzy orange soda. A fun and refreshing drink.",
-    category: "Cold Drinks",
+    category: "drink", // Changed from "Cold Drinks" to "drink"
     rating: 4.4,
   },
   {
@@ -97,7 +97,7 @@ const Drinks = [
     name: "Maaza",
     price: 10,
     desc: "Mango-flavored drink that brings the taste of ripe mangoes to life.",
-    category: "Cold Drinks",
+    category: "drink", // Changed from "Cold Drinks" to "drink"
     rating: 4.6,
   },
 ];

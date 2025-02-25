@@ -14,90 +14,90 @@ const Juices = [
     id: 94,
     img: img94,
     name: "Mango Juice",
-    price: 45, // updated
+    price: 45,
     desc: "Sweet and refreshing juice made from ripe mangoes. Perfect for summer.",
-    category: "Juices",
+    category: "juice", // Changed from "Juices" to "juice"
     rating: 4.7,
   },
   {
     id: 95,
     img: img95,
     name: "Orange Juice",
-    price: 40, // unchanged
+    price: 40,
     desc: "Freshly squeezed orange juice, rich in vitamin C and tangy in flavor.",
-    category: "Juices",
+    category: "juice", // Changed from "Juices" to "juice"
     rating: 4.5,
   },
   {
     id: 96,
     img: img96,
     name: "Watermelon Juice",
-    price: 35, // updated
+    price: 35,
     desc: "Cool and hydrating juice made from fresh watermelon. Ideal for hot days.",
-    category: "Juices",
+    category: "juice", // Changed from "Juices" to "juice"
     rating: 4.6,
   },
   {
     id: 97,
     img: img97,
     name: "Pineapple Juice",
-    price: 45, // updated
+    price: 45,
     desc: "Sweet and tangy juice made from fresh pineapples. A tropical delight.",
-    category: "Juices",
+    category: "juice", // Changed from "Juices" to "juice"
     rating: 4.4,
   },
   {
     id: 98,
     img: img98,
     name: "Mosambi Juice",
-    price: 30, // updated
+    price: 30,
     desc: "Sweet lime juice, known for its refreshing and mildly sweet taste.",
-    category: "Juices",
+    category: "juice", // Changed from "Juices" to "juice"
     rating: 4.3,
   },
   {
     id: 99,
     img: img99,
     name: "Pomegranate Juice",
-    price: 50, // updated
+    price: 50,
     desc: "Rich and antioxidant-packed juice made from fresh pomegranates.",
-    category: "Juices",
+    category: "juice", // Changed from "Juices" to "juice"
     rating: 4.8,
   },
   {
     id: 100,
     img: img100,
     name: "Grape Juice",
-    price: 40, // unchanged
+    price: 40,
     desc: "Sweet and refreshing juice made from fresh grapes. A crowd favorite.",
-    category: "Juices",
+    category: "juice", // Changed from "Juices" to "juice"
     rating: 4.5,
   },
   {
     id: 101,
     img: img101,
     name: "Lemon Juice",
-    price: 25, // updated
+    price: 25,
     desc: "Zesty and refreshing lemon juice, often served with a pinch of salt and sugar.",
-    category: "Juices",
+    category: "juice", // Changed from "Juices" to "juice"
     rating: 4.2,
   },
   {
     id: 102,
     img: img102,
     name: "Coke",
-    price: 20, // unchanged
+    price: 20,
     desc: "A classic carbonated soft drink known for its refreshing taste and bubbly texture, perfect for any occasion.",
-    category: "Beverages",
+    category: "beverage", // Changed from "Beverages" to "beverage"
     rating: 4.3,
   },
   {
     id: 103,
     img: img103,
     name: "Sugarcane Juice",
-    price: 30, // updated
+    price: 30,
     desc: "Sweet and energizing juice extracted from fresh sugarcane, often served with a dash of ginger and lemon.",
-    category: "Juices",
+    category: "juice", // Changed from "Juices" to "juice"
     rating: 4.6,
   },
 ];

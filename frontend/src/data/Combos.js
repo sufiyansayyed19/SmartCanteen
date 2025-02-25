@@ -16,7 +16,7 @@ const Combos = [
     name: "Fries with Coke",
     price: 120,
     desc: "Crispy golden fries served with a chilled glass of coke. Perfect snack combo.",
-    category: "Combos",
+    category: "combo", // Changed from "Combos" to "combo"
     rating: 4.5,
     isVeg: true,
   },
@@ -26,7 +26,7 @@ const Combos = [
     name: "Veg Burger with Coke",
     price: 150,
     desc: "A delicious veg burger with fresh veggies and a chilled glass of coke. Great for a quick meal.",
-    category: "Combos",
+    category: "combo", // Changed from "Combos" to "combo"
     rating: 4.6,
     isVeg: true,
   },
@@ -36,7 +36,7 @@ const Combos = [
     name: "Chicken Burger with Fries",
     price: 180,
     desc: "Juicy chicken burger served with crispy fries. A classic combo for non-veg lovers.",
-    category: "Combos",
+    category: "combo", // Changed from "Combos" to "combo"
     rating: 4.7,
     isVeg: false,
   },
@@ -46,7 +46,7 @@ const Combos = [
     name: "Pizza with Coke",
     price: 200,
     desc: "A medium-sized pizza with your favorite toppings and a chilled glass of coke. Perfect for sharing.",
-    category: "Combos",
+    category: "combo", // Changed from "Combos" to "combo"
     rating: 4.8,
     isVeg: true,
   },
@@ -56,7 +56,7 @@ const Combos = [
     name: "Nachos with Cheese Dip and Coke",
     price: 160,
     desc: "Crispy nachos served with cheesy dip and a chilled glass of coke. Ideal for movie nights.",
-    category: "Combos",
+    category: "combo", // Changed from "Combos" to "combo"
     rating: 4.4,
     isVeg: true,
   },
@@ -66,7 +66,7 @@ const Combos = [
     name: "Pasta with Garlic Bread",
     price: 170,
     desc: "Creamy pasta served with buttery garlic bread. A satisfying meal combo.",
-    category: "Combos",
+    category: "combo", // Changed from "Combos" to "combo"
     rating: 4.6,
     isVeg: true,
   },
@@ -76,7 +76,7 @@ const Combos = [
     name: "Sandwich with Fries",
     price: 140,
     desc: "Grilled sandwich with fresh veggies and crispy fries. A light and tasty combo.",
-    category: "Combos",
+    category: "combo", // Changed from "Combos" to "combo"
     rating: 4.3,
     isVeg: true,
   },
@@ -86,7 +86,7 @@ const Combos = [
     name: "Chicken Wings with Coke",
     price: 190,
     desc: "Spicy chicken wings served with a chilled glass of coke. Perfect for game nights.",
-    category: "Combos",
+    category: "combo", // Changed from "Combos" to "combo"
     rating: 4.7,
     isVeg: false,
   },
@@ -96,7 +96,7 @@ const Combos = [
     name: "Pav Bhaji with Coke",
     price: 130,
     desc: "Spicy and buttery pav bhaji served with a chilled glass of coke. A Mumbai street food favorite.",
-    category: "Combos",
+    category: "combo", // Changed from "Combos" to "combo"
     rating: 4.5,
     isVeg: true,
   },
@@ -106,7 +106,7 @@ const Combos = [
     name: "Momos with Coke",
     price: 110,
     desc: "Steamed or fried momos served with a chilled glass of coke. A popular Indo-Chinese combo.",
-    category: "Combos",
+    category: "combo", // Changed from "Combos" to "combo"
     rating: 4.6,
     isVeg: true,
   },

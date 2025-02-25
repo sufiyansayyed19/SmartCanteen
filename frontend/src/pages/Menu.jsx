@@ -2,7 +2,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { Breakfast, Biscuits, Chips, Combos, Dinner, Drinks, Juices, Lunch, NavbarData, Sweets, TodaySpecial } from "../data";
 import MenuFoodCard from "../components/MenuFoodCard ";
-
+import WholeFoodData from "../data/WholeFoodData";
 const Menu = () => {
 
   const subHeadings = ["🔥 Today's Special 🔥", "🍱 Combos 🍱", "🍳 Breakfast 🍳", "🍲 Lunch 🍲", "🥩 Dinner 🥩", "🍟 Chips 🍟", "🍪 Biscuits 🍪", "🥤 Drinks 🥤", "🧃 Juices 🧃", "🍰 Sweets 🍰"];
@@ -31,8 +31,8 @@ const Menu = () => {
   // Filtered items based on selected category
   const filteredItems =
     filters.category === "All"
-      ? Lunch
-      : Lunch.filter((item) => item.category === filters.category);
+      ? WholeFoodData
+      : WholeFoodData.filter((item) => item.category === filters.category);
 
   return (
     <div className="min-h-screen bg-red-50 md:p-6 p-6 pt-2">
