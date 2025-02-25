@@ -7,17 +7,13 @@ import {
   Combos,
   Dinner,
   Drinks,
-  FoodData,
-  IndianFood,
   Juices,
   Lunch,
   NavbarData,
   Sweets,
   TodaySpecial,
 } from "../data";
-
 import MenuFoodCard from "../components/MenuFoodCard ";
-import FoodCard from "../components/FoodCard";
 
 const Menu = () => {
   const [filters, setFilters] = useState({
@@ -36,17 +32,19 @@ const Menu = () => {
   };
 
   // Filtered items based on selected category
-  const filteredItems =
+  let filteredItems =
     filters.category === "All"
       ? Lunch
       : Lunch.filter((item) => item.category === filters.category);
 
   return (
-    <div className="min-h-screen bg-red-50 md:p-6  p-6 pt-2">
+    <div className="min-h-screen bg-red-50 md:p-6 p-6 pt-2">
       <div className="flex flex-col md:flex-row w-full">
         {/* Filters Section (Left Side) */}
-        <div className="w-full md:w-1/4 bg-white md:p-6  p-6 pt-4 rounded-lg shadow-md  md:mb-0 md:mr-6 lg:h-screen">
-          <h2 className="text-lg md:text-xl font-bold text-gray-800 mb-1 md:mb-5">Filters</h2>
+        <div className="w-full md:w-[20rem] flex-shrink-0 bg-white md:p-6 p-6 pt-4 rounded-lg shadow-md md:mb-0 md:mr-6 lg:min-h-screen">
+          <h2 className="text-lg md:text-xl font-bold text-gray-800 mb-1 md:mb-5">
+            Filters
+          </h2>
 
           {/* Category Filter */}
           <div className="">
@@ -71,27 +69,39 @@ const Menu = () => {
         </div>
 
         {/* Items Section (Right Side) */}
-        <div className="w-full">
-          <div className="flex items-center justify-center my-4">
-            <div className="mr-2 md:mr-3 h-[2px] w-8 md:w-20 bg-gray-400"></div>
-            <h2 className="text-xl md:text-3xl font-bold text-red-950">Menu</h2>
-            <div className="ml-2 md:ml-3 h-[2px] w-8 md:w-20 bg-gray-400"></div>
+        <div className="flex-1 min-h-screen bg-red-50 p-6 pt-2">
+          {/* Menu Header */}
+          <div className="flex flex-col items-center justify-center md:mb-6">
+            {/* Horizontal Lines and Gradient Text */}
+            <div className="flex items-center justify-center mt-3 md:mt-0">
+              <div className="h-[2px] w-8 md:w-16 bg-gray-400"></div>
+              <h1 className="text-[1rem] md:text-2xl font-extrabold text-center bg-gradient-to-r from-orange-600 to-red-700 text-transparent bg-clip-text drop-shadow-lg mx-2 animate-pulse">
+                🍴 Explore Our Menu 🍴
+              </h1>
+              <div className="h-[2px] w-8 md:w-16 bg-gray-400"></div>
+            </div>
+
+            {/* Subheading */}
+            <p className="text-[0.6rem] md:text-sm text-gray-600 m-2 text-center">
+              Discover a variety of delicious dishes crafted just for you!
+            </p>
           </div>
 
           {/* Display Items */}
-          <div className="flex flex-wrap justify-center gap-3 md:gap-10 mx-3 md:mx-10">
-            {filteredItems.map((food) => (
-              <MenuFoodCard
-                key={food.id}
-                id={food.id}
-                name={food.name}
-                price={food.price}
-                desc={food.desc}
-                rating={food.rating}
-                img={food.img}
-                handleToast={handleToast}
-              />
-            ))}
+          <div className="flex flex-wrap justify-center gap-4 md:gap-10 mx-3 md:mx-10">
+            {filteredItems &&
+              filteredItems.map((food) => (
+                <MenuFoodCard
+                  key={food.id}
+                  id={food.id}
+                  name={food.name}
+                  price={food.price}
+                  desc={food.desc}
+                  rating={food.rating}
+                  img={food.img}
+                  handleToast={handleToast}
+                />
+              ))}
           </div>
         </div>
       </div>
