@@ -1,21 +1,18 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
-import {
-  Breakfast,
-  Biscuits,
-  Chips,
-  Combos,
-  Dinner,
-  Drinks,
-  Juices,
-  Lunch,
-  NavbarData,
-  Sweets,
-  TodaySpecial,
-} from "../data";
+import { Breakfast, Biscuits, Chips, Combos, Dinner, Drinks, Juices, Lunch, NavbarData, Sweets, TodaySpecial } from "../data";
 import MenuFoodCard from "../components/MenuFoodCard ";
 
 const Menu = () => {
+
+  const subHeadings = ["🔥 Today's Special 🔥", "🍱 Combos 🍱", "🍳 Breakfast 🍳", "🍲 Lunch 🍲", "🥩 Dinner 🥩", "🍟 Chips 🍟", "🍪 Biscuits 🍪", "🥤 Drinks 🥤", "🧃 Juices 🧃", "🍰 Sweets 🍰"];
+
+  const FoodData = [TodaySpecial, Combos, Breakfast, Lunch, Dinner, Chips, Biscuits, Drinks, Juices, Sweets];
+
+
+
+
+
   const [filters, setFilters] = useState({
     category: "All", // Default: Show all categories
   });
@@ -32,7 +29,7 @@ const Menu = () => {
   };
 
   // Filtered items based on selected category
-  let filteredItems =
+  const filteredItems =
     filters.category === "All"
       ? Lunch
       : Lunch.filter((item) => item.category === filters.category);
@@ -80,7 +77,7 @@ const Menu = () => {
               </h1>
               <div className="h-[2px] w-8 md:w-16 bg-gray-400"></div>
             </div>
-
+            
             {/* Subheading */}
             <p className="text-[0.6rem] md:text-sm text-gray-600 m-2 text-center">
               Discover a variety of delicious dishes crafted just for you!

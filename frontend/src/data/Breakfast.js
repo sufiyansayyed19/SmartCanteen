@@ -1,26 +1,23 @@
-import img1 from '../assets/Breakfast/img1_plainDos.jpeg'
-import img2 from "../assets/Breakfast/img2_IdliSambhar.jpeg"
-import img3 from '../assets/Breakfast/img3_chole.jpeg'
-import img4 from "../assets/Breakfast/img4_onionUttappam.jpeg"
-import img5 from '../assets/Breakfast/img5_Aloo Paratha.jpeg'
-import img6 from '../assets/Breakfast/img6_VadaPav.jpeg'
-import img7 from '../assets/Breakfast/img7_Upma.jpeg'
-import img8 from '../assets/Breakfast/img8_masalaDosa.jpeg'
-import img9 from '../assets/Breakfast/img9_poha.png'
-import img10 from '../assets/Breakfast/img10_misalPav.jpeg'
-import img11 from '../assets/Breakfast/img11_PaneerParatha.jpeg'
-import img12 from '../assets/Breakfast/img12_MeduVada.jpeg'
-import img13 from '../assets/Breakfast/img13_samosaPav.jpeg'
-import img14 from '../assets/Breakfast/img14_puriBhaji.jpeg'
-import img15 from '../assets/Breakfast/img15_Rava_Idli.jpeg'
-
-
-
+import img19 from '../assets/Breakfast/img1_plainDos.jpeg';
+import img20 from '../assets/Breakfast/img2_IdliSambhar.jpeg';
+import img21 from '../assets/Breakfast/img3_chole.jpeg';
+import img22 from '../assets/Breakfast/img4_onionUttappam.jpeg';
+import img23 from '../assets/Breakfast/img5_Aloo Paratha.jpeg';
+import img24 from '../assets/Breakfast/img6_VadaPav.jpeg';
+import img25 from '../assets/Breakfast/img7_Upma.jpeg';
+import img26 from '../assets/Breakfast/img8_masalaDosa.jpeg';
+import img27 from '../assets/Breakfast/img9_poha.png';
+import img28 from '../assets/Breakfast/img10_misalPav.jpeg';
+import img29 from '../assets/Breakfast/img11_PaneerParatha.jpeg';
+import img30 from '../assets/Breakfast/img12_MeduVada.jpeg';
+import img31 from '../assets/Breakfast/img13_samosaPav.jpeg';
+import img32 from '../assets/Breakfast/img14_puriBhaji.jpeg';
+import img33 from '../assets/Breakfast/img15_Rava_Idli.jpeg';
 
 const Breakfast = [
   {
-    id: 1,
-    img: img1, 
+    id: 19,
+    img: img19,
     name: "Plain Dosa",
     price: 100,
     desc: "Crispy, thin crepe made from fermented rice and lentil batter. Served with coconut chutney and sambar. A light and healthy breakfast option that's rich in probiotics.",
@@ -29,8 +26,8 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 2,
-    img: img2, 
+    id: 20,
+    img: img20,
     name: "Idli Sambar",
     price: 80,
     desc: "Soft, steamed rice cakes made from fermented rice and lentil batter. Served with spiced lentil soup and coconut chutney. A protein-rich, digestible breakfast.",
@@ -39,8 +36,8 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 3,
-    img: img3, 
+    id: 21,
+    img: img21,
     name: "Chole Bhature",
     price: 150,
     desc: "Fluffy, deep-fried bread served with spiced chickpea curry. Garnished with onions and pickles. A hearty Punjabi breakfast favorite.",
@@ -49,8 +46,8 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 4,
-    img: img4, 
+    id: 22,
+    img: img22,
     name: "Onion Uttapam",
     price: 120,
     desc: "Thick rice and lentil pancake topped with onions, tomatoes, and green chilies. Served with sambar and chutney. A savory breakfast option.",
@@ -59,8 +56,8 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 5,
-    img: img5, 
+    id: 23,
+    img: img23,
     name: "Aloo Paratha",
     price: 90,
     desc: "Whole wheat flatbread stuffed with spiced mashed potatoes, served with butter, yogurt, and pickle. A classic North Indian breakfast.",
@@ -69,8 +66,8 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 6,
-    img: img6, 
+    id: 24,
+    img: img24,
     name: "Vada Pav",
     price: 50,
     desc: "Spiced potato fritter in a bun with garlic and chili chutneys. Mumbai's favorite breakfast sandwich and street food.",
@@ -79,8 +76,8 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 7,
-    img: img7, 
+    id: 25,
+    img: img25,
     name: "Upma",
     price: 70,
     desc: "Savory semolina porridge cooked with vegetables and mild spices. A light and healthy breakfast option from South India.",
@@ -89,8 +86,8 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 8,
-    img: img8, 
+    id: 26,
+    img: img26,
     name: "Masala Dosa",
     price: 130,
     desc: "Crispy rice crepe filled with spiced potato filling. Served with coconut chutney and sambar. A popular variant of plain dosa.",
@@ -99,8 +96,8 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 9,
-    img: img9, 
+    id: 27,
+    img: img27,
     name: "Poha",
     price: 60,
     desc: "Flattened rice flakes cooked with onions, peanuts, and spices. A light and nutritious breakfast from Central India.",
@@ -109,8 +106,8 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 10,
-    img: img10, 
+    id: 28,
+    img: img28,
     name: "Misal Pav",
     price: 110,
     desc: "Spicy sprouted moth beans curry served with bread rolls. Topped with crunchy farsan, onions, and coriander. A protein-rich Maharashtrian breakfast.",
@@ -119,8 +116,8 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 11,
-    img: img11, 
+    id: 29,
+    img: img29,
     name: "Paneer Paratha",
     price: 100,
     desc: "Whole wheat flatbread stuffed with spiced cottage cheese mixture. Served with butter, yogurt, and pickle.",
@@ -129,8 +126,8 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 12,
-    img: img12, 
+    id: 30,
+    img: img30,
     name: "Medu Vada",
     price: 70,
     desc: "Crispy lentil doughnuts seasoned with spices and curry leaves. Served with coconut chutney and sambar.",
@@ -139,8 +136,8 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 13,
-    img: img13, 
+    id: 31,
+    img: img31,
     name: "Samosa with Chai",
     price: 60,
     desc: "Crispy pastry filled with spiced potatoes and peas, served with sweet-spicy chutney and masala chai.",
@@ -149,8 +146,8 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 14,
-    img: img14, 
+    id: 32,
+    img: img32,
     name: "Puri Bhaji",
     price: 90,
     desc: "Deep-fried wheat bread served with spiced potato curry. A classic breakfast combination loved across India.",
@@ -159,8 +156,8 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 15,
-    img: img15, 
+    id: 33,
+    img: img33,
     name: "Rava Idli",
     price: 85,
     desc: "Steamed semolina cakes with carrots and cashews. A healthier and instant variation of traditional idli.",

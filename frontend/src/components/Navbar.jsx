@@ -18,8 +18,8 @@ const Navbar = () => {
       );
         return (
         <>
-            <nav className='py-0'>
-                <div className='container mx-auto flex justify-between items-center pt-3 h-14'>
+            <nav className='py-1 md:py-2 '>
+                <div className='container mx-auto flex justify-between items-center  h-14'>
                     {/* Logo Section */}
                     <Link to='/'>    
                         <div className='text-xl md:text-2xl flex items-center font-bold uppercase p-4'>
@@ -53,11 +53,11 @@ const Navbar = () => {
                             <button className=' font-semibold text-2xl '><PiShoppingCartThin/></button>
                             <p className={`${cartCount?"absolute":"hidden"} absolute right-[-1px] top-[-2px] w-3 h-3 text-[7px] md:w-4 md:h-4 md:text-[8px] text-center leading-relaxed bg-black text-white aspect-square rounded-full`}>{cartCount}</p>
                         </Link>
-                        <div className='group relative mt-2'>
+                        <div className='group relative mt-2 z-30'>
                             <button className=' font-semibold text-xl '><VscAccount/></button>
                             {/* <img className='w-5 cursor-pointer'  src={assets.profile_icon} alt="profile" /> */}
                             <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
-                                <div className="flex flex-col w-36 gap-2 px-5 py-3 bg-slate-100 text-gray-500 rounded text-sm ">
+                                <div className=" flex flex-col w-36 gap-2 px-5 py-3 bg-slate-100 text-gray-500 rounded text-sm ">
                                     <p onClick={()=> navigate('/user/:userId')} className="cursor-pointer hover:text-black">My Profile</p>
                                     <p onClick={()=> navigate('/user/:userId/orders')} className="cursor-pointer hover:text-black">Orders</p>
                                     <p onClick={()=> navigate('/')} className="cursor-pointer hover:text-black">Logout</p>
