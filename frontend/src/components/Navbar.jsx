@@ -19,7 +19,7 @@ const Navbar = () => {
         return (
         <>
             <nav className='py-0'>
-                <div className='container mx-auto flex justify-between items-center pt-5 h-14'>
+                <div className='container mx-auto flex justify-between items-center pt-3 h-14'>
                     {/* Logo Section */}
                     <Link to='/'>    
                         <div className='text-xl md:text-2xl flex items-center font-bold uppercase p-4'>
@@ -51,7 +51,7 @@ const Navbar = () => {
                         
                         <Link to="/cart" className = "relative mt-2">
                             <button className=' font-semibold text-2xl '><PiShoppingCartThin/></button>
-                            <p className={`${cartCount?"absolute":"hidden"} absolute right-[-1px] top-[-2px] w-3 h-3 text-[6px] md:w-4 md:h-4 md:text-[8px] text-center leading-relaxed bg-black text-white aspect-square rounded-full`}>{cartCount}</p>
+                            <p className={`${cartCount?"absolute":"hidden"} absolute right-[-1px] top-[-2px] w-3 h-3 text-[7px] md:w-4 md:h-4 md:text-[8px] text-center leading-relaxed bg-black text-white aspect-square rounded-full`}>{cartCount}</p>
                         </Link>
                         <div className='group relative mt-2'>
                             <button className=' font-semibold text-xl '><VscAccount/></button>
