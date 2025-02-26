@@ -7,7 +7,7 @@ import ChipSnacks from './Chips';      // IDs: 64-73
 import Biscuits from './Biscuits';     // IDs: 74-83
 import Drinks from './Drinks';         // IDs: 84-93
 import Juices from './Juices';         // IDs: 94-103
-import Sweets from './Sweet';          // IDs: 104-108
+import Sweets from './Sweets';          // IDs: 104-108
 
 const WholeFoodData = [
   ...TodaySpecial,

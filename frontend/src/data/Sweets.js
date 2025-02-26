@@ -11,7 +11,7 @@ const Sweet = [
     name: "Chocolate Pastry",
     price: 25,
     desc: "Soft and fluffy chocolate pastry with a rich chocolate topping. Perfect for a sweet treat.",
-    category: "Sweet",
+    category: "sweet",
     rating: 4.5,
   },
   {
@@ -20,7 +20,7 @@ const Sweet = [
     name: "Vanilla Cake Slice",
     price: 20,
     desc: "A slice of moist vanilla cake with creamy frosting. Light and delicious.",
-    category: "Sweet",
+    category: "sweet",
     rating: 4.3,
   },
   {
@@ -29,7 +29,7 @@ const Sweet = [
     name: "Red Velvet Cupcake",
     price: 30,
     desc: "A single red velvet cupcake with cream cheese frosting. A delightful indulgence.",
-    category: "Sweet",
+    category: "sweet",
     rating: 4.6,
   },
   {
@@ -38,7 +38,7 @@ const Sweet = [
     name: "Gulab Jamun",
     price: 15,
     desc: "Soft and syrupy gulab jamun, a classic Indian sweet. Served warm.",
-    category: "Sweet",
+    category: "sweet",
     rating: 4.7,
   },
   {
@@ -47,7 +47,7 @@ const Sweet = [
     name: "Rasgulla",
     price: 10,
     desc: "Spongy and juicy rasgulla soaked in sugar syrup. A refreshing sweet.",
-    category: "Sweet",
+    category: "sweet",
     rating: 4.4,
   },
 ];

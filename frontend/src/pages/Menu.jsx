@@ -31,15 +31,16 @@ const Menu = () => {
   // Filtered items based on selected category
   const filteredItems =
     filters.category === "All"
-      ? WholeFoodData
+      ? WholeFoodData.sort(() => Math.random() - 0.5)
+      .slice(0, 20)
       : WholeFoodData.filter((item) => item.category === filters.category);
 
   return (
     <div className="min-h-screen bg-red-50 md:p-6 p-6 pt-2">
       <div className="flex flex-col md:flex-row w-full">
         {/* Filters Section (Left Side) */}
-        <div className="w-full md:w-[20rem] flex-shrink-0 bg-white md:p-6 p-6 pt-4 rounded-lg shadow-md md:mb-0 md:mr-6 lg:min-h-screen">
-          <h2 className="text-lg md:text-xl font-bold text-gray-800 mb-1 md:mb-5">
+        <div className="w-full md:w-[20rem] flex-shrink-0 bg-white md:p-6 p-6 mt-3 md:mt-0 pt-3  rounded-lg shadow-md md:mb-0 md:mr-6 lg:min-h-screen">
+          <h2 className="text-lg md:text-xl font-bold text-gray-800 mb-1 md:mb-5 md:mt-2">
             Filters
           </h2>
 
@@ -55,10 +56,16 @@ const Menu = () => {
               className="w-full p-2 text-sm md:text-lg border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
             >
               <option value="All">All</option>
-              <option value="Breakfast">Breakfast</option>
+              <option value="combo">Combos</option>
+              <option value="breakfast">Breakfast</option>
               <option value="lunch">Lunch</option>
-              <option value="Dinner">Dinner</option>
-              <option value="Sweets">Dessert</option>
+              <option value="dinner">Dinner</option>
+              <option value="chips">Chip Snacks</option>
+              <option value="biscuits">Biscuits</option>
+              <option value="drink">Drinks</option>
+              <option value="juice">Jucies</option>
+              <option value="sweet">Sweets</option>
+
             </select>
           </div>
 

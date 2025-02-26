@@ -1,212 +1,178 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-
-// Dummy data for menu items
-const menuItems = [
-  {
-    id: 1,
-    name: "Masala Dosa",
-    price: 120,
-    img: "https://example.com/masala-dosa.jpg",
-    category: "Breakfast",
-    rating: 4.7,
-  },
-  {
-    id: 2,
-    name: "Paneer Butter Masala",
-    price: 180,
-    img: "https://example.com/paneer-butter-masala.jpg",
-    category: "Lunch",
-    rating: 4.6,
-  },
-  {
-    id: 3,
-    name: "Chicken Biryani",
-    price: 200,
-    img: "https://example.com/chicken-biryani.jpg",
-    category: "Lunch",
-    rating: 4.8,
-  },
-  {
-    id: 4,
-    name: "Veg Fried Rice",
-    price: 150,
-    img: "https://example.com/veg-fried-rice.jpg",
-    category: "Dinner",
-    rating: 4.5,
-  },
-  {
-    id: 5,
-    name: "Gulab Jamun",
-    price: 50,
-    img: "https://example.com/gulab-jamun.jpg",
-    category: "Dessert",
-    rating: 4.7,
-  },
-];
-
-const Menu = () => {
-  const [filters, setFilters] = useState({
-    category: "All", // Default: Show all categories
-  });
-
-  // Handle filter change
-  const handleFilterChange = (e) => {
-    const { name, value } = e.target;
-    setFilters({
-      ...filters,
-      [name]: value,
-    });
-  };
-
-  // Filtered items based on selected category
-  const filteredItems =
-    filters.category === "All"
-      ? menuItems
-      : menuItems.filter((item) => item.category === filters.category);
-
-  return (
-    <div className="flex min-h-screen bg-gray-50 p-6">
-      {/* Filters Section (Left Side) */}
-      <div className="w-1/4 bg-white md:p-6 rounded-lg shadow-md">
-        <h2 className="text-xl font-bold text-gray-800 mb-6">Filters</h2>
-
-        {/* Category Filter */}
-        <div className="mb-6">
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Category
-          </label>
-          <select
-            name="category"
-            value={filters.category}
-            onChange={handleFilterChange}
-            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
-          >
-            <option value="All">All</option>
-            <option value="Breakfast">Breakfast</option>
-            <option value="Lunch">Lunch</option>
-            <option value="Dinner">Dinner</option>
-            <option value="Dessert">Dessert</option>
-          </select>
-        </div>
-
-        {/* Add more filters here if needed */}
-      </div>
-
-      {/* Items Section (Right Side) */}
-      <div className="w-3/4 md:ml-6">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6">Menu</h1>
-
-        {/* Display Items */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredItems.map((item) => (
-            <div
-              key={item.id}
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
-            >
-              <img
-                src={item.img}
-                alt={item.name}
-                className="w-full h-48 object-cover rounded-md mb-4"
-              />
-              <h2 className="text-xl font-semibold text-gray-800 mb-2">
-                {item.name}
-              </h2>
-              <p className="text-gray-600 mb-2">₹{item.price}</p>
-              <p className="text-gray-600 mb-4">{item.category}</p>
-              <div className="flex items-center">
-                <span className="text-yellow-500">⭐ {item.rating}</span>
-              </div>
-              <button className="mt-4 w-full bg-orange-600 text-white py-2 rounded-md hover:bg-orange-700 transition duration-300">
-                Add to Cart
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
+import { useState } from 'react';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [orders, setOrders] = useState([
+    { id: 1, customer: 'John Doe', items: ['Burger', 'Fries'], status: 'Pending' },
+    { id: 2, customer: 'Jane Smith', items: ['Pizza', 'Coke'], status: 'Delivered' },
+    { id: 3, customer: 'Alice Johnson', items: ['Salad', 'Juice'], status: 'Cancelled' },
+  ]);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+  const [menuItems, setMenuItems] = useState([
+    { id: 1, name: 'Burger', price: 5.99, category: 'Main Course' },
+    { id: 2, name: 'Pizza', price: 8.99, category: 'Main Course' },
+    { id: 3, name: 'Salad', price: 4.99, category: 'Healthy' },
+  ]);
+
+  const [feedback, setFeedback] = useState([
+    { id: 1, user: 'John Doe', comment: 'Great food!', rating: 5 },
+    { id: 2, user: 'Jane Smith', comment: 'Service could be better.', rating: 3 },
+  ]);
+
+  const salesData = [
+    { day: 'Mon', sales: 120 },
+    { day: 'Tue', sales: 150 },
+    { day: 'Wed', sales: 200 },
+    { day: 'Thu', sales: 180 },
+    { day: 'Fri', sales: 250 },
+    { day: 'Sat', sales: 300 },
+    { day: 'Sun', sales: 280 },
+  ];
+
+  const handleDeleteOrder = (id) => {
+    setOrders(orders.filter((order) => order.id !== id));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log("Form submitted:", formData);
+  const handleDeleteMenuItem = (id) => {
+    setMenuItems(menuItems.filter((item) => item.id !== id));
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50 p-6">
-      <div className="w-full bg-white p-6 rounded-lg shadow-md mb-6">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6">Contact Us</h1>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Name
-            </label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
-              required
-            />
+    <div className="min-h-screen bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Dashboard Overview */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <h3 className="text-lg font-semibold text-gray-800">Total Orders</h3>
+            <p className="text-2xl font-bold text-purple-600">1,234</p>
           </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
-              required
-            />
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <h3 className="text-lg font-semibold text-gray-800">Total Revenue</h3>
+            <p className="text-2xl font-bold text-green-600">$12,345</p>
           </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Message
-            </label>
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
-              rows="4"
-              required
-            ></textarea>
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <h3 className="text-lg font-semibold text-gray-800">Active Users</h3>
+            <p className="text-2xl font-bold text-blue-600">567</p>
           </div>
-          <button
-            type="submit"
-            className="w-full bg-orange-600 text-white py-2 rounded-md hover:bg-orange-700 transition duration-300"
-          >
-            Submit
-          </button>
-        </form>
-      </div>
-      <div className="w-full bg-white p-6 rounded-lg shadow-md">
-        <img
-          src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d"
-          alt="Big Cola"
-          className="w-full h-96 object-cover rounded-md"
-        />
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <h3 className="text-lg font-semibold text-gray-800">Pending Orders</h3>
+            <p className="text-2xl font-bold text-yellow-600">23</p>
+          </div>
+        </div>
+
+        {/* Order Management */}
+        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 className="text-xl font-bold text-gray-800 mb-4">Order Management</h2>
+          <div className="overflow-x-auto">
+            <table className="w-full table-auto">
+              <thead>
+                <tr className="bg-gray-100">
+                  <th className="px-4 py-2 text-left">Order ID</th>
+                  <th className="px-4 py-2 text-left">Customer</th>
+                  <th className="px-4 py-2 text-left">Items</th>
+                  <th className="px-4 py-2 text-left">Status</th>
+                  <th className="px-4 py-2 text-left">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {orders.map((order) => (
+                  <tr key={order.id} className="border-b border-gray-200">
+                    <td className="px-4 py-2">{order.id}</td>
+                    <td className="px-4 py-2">{order.customer}</td>
+                    <td className="px-4 py-2">{order.items.join(', ')}</td>
+                    <td className="px-4 py-2">
+                      <span
+                        className={`px-2 py-1 rounded-full text-sm ${
+                          order.status === 'Pending'
+                            ? 'bg-yellow-100 text-yellow-800'
+                            : order.status === 'Delivered'
+                            ? 'bg-green-100 text-green-800'
+                            : 'bg-red-100 text-red-800'
+                        }`}
+                      >
+                        {order.status}
+                      </span>
+                    </td>
+                    <td className="px-4 py-2">
+                      <button
+                        onClick={() => handleDeleteOrder(order.id)}
+                        className="px-3 py-1 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all duration-300"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Menu Management */}
+        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 className="text-xl font-bold text-gray-800 mb-4">Menu Management</h2>
+          <div className="overflow-x-auto">
+            <table className="w-full table-auto">
+              <thead>
+                <tr className="bg-gray-100">
+                  <th className="px-4 py-2 text-left">Item ID</th>
+                  <th className="px-4 py-2 text-left">Name</th>
+                  <th className="px-4 py-2 text-left">Price</th>
+                  <th className="px-4 py-2 text-left">Category</th>
+                  <th className="px-4 py-2 text-left">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {menuItems.map((item) => (
+                  <tr key={item.id} className="border-b border-gray-200">
+                    <td className="px-4 py-2">{item.id}</td>
+                    <td className="px-4 py-2">{item.name}</td>
+                    <td className="px-4 py-2">${item.price.toFixed(2)}</td>
+                    <td className="px-4 py-2">{item.category}</td>
+                    <td className="px-4 py-2">
+                      <button
+                        onClick={() => handleDeleteMenuItem(item.id)}
+                        className="px-3 py-1 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all duration-300"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* User Feedback */}
+        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 className="text-xl font-bold text-gray-800 mb-4">User Feedback</h2>
+          <div className="space-y-4">
+            {feedback.map((fb) => (
+              <div key={fb.id} className="border-b border-gray-200 pb-4">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <p className="text-gray-800 font-semibold">{fb.user}</p>
+                    <p className="text-gray-600">{fb.comment}</p>
+                  </div>
+                  <span className="text-yellow-600">⭐ {fb.rating}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Analytics */}
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <h2 className="text-xl font-bold text-gray-800 mb-4">Sales Analytics</h2>
+          <BarChart width={600} height={300} data={salesData}>
+            <XAxis dataKey="day" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="sales" fill="#6D28D9" />
+          </BarChart>
+        </div>
       </div>
     </div>
   );

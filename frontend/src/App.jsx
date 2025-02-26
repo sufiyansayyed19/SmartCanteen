@@ -27,6 +27,7 @@ import Footer from './components/Footer';
 import Cart from './pages/Cart';
 import Orders from './pages/Orders';
 import Contact from './pages/Contact';
+import Profile from './pages/Profile';
 function App() {
   return (
     <>
@@ -42,7 +43,7 @@ function App() {
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/orders" element={<Orders/>} />
         <Route path="/contact" element={<Contact />} />
-        
+        <Route path="/profile" element={<Profile />} />
         {/* Canteen Routes */}
         <Route path="/canteen/:canteenId/*" element={<CanteenLayout />}>
           <Route index element={<CanteenDashboard />} />
