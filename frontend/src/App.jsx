@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Toaster } from "react-hot-toast";
 // Admin imports
-import AdminCanteens from './pages/Admin/AdminCanteens';
-import AdminChatSupport from './pages/Admin/AdminChatSupport';
-import AdminDashboard from './pages/Admin/AdminDashboard';
-import AdminUsers from './pages/Admin/AdminUsers';
+import AdminHome from './pages/Admin/AdminHome';
+import AdminProducts from './pages/Admin/AdminProducts';
+import AdminAddProduct from './pages/Admin/AdminAddProduct';
 import AdminLayout from './pages/Admin/AdminLayout';
+
 // Canteen imports
 import CanteenCommunication from './pages/Canteen/CanteenCommunication';
 import CanteenDashboard from './pages/Canteen/CanteenDashboard';
@@ -27,14 +27,17 @@ import Footer from './components/Footer';
 import Cart from './pages/Cart';
 import Orders from './pages/Orders';
 import Contact from './pages/Contact';
-import Profile from './pages/Profile';
+import Profile from './pages/profile';
+import AdminNavbar from './components/Admin/AdminNavbar';
 function App() {
   return (
     <>
     <Toaster position="top-center" reverseOrder={false} toastOptions={{ duration: 2000 }} />
     <Router>
       <ConditionalNavbar />
+      <AdminNav/>
       <Routes>
+
         {/* public Routes */}
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -44,6 +47,7 @@ function App() {
         <Route path="/orders" element={<Orders/>} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/profile" element={<Profile />} />
+
         {/* Canteen Routes */}
         <Route path="/canteen/:canteenId/*" element={<CanteenLayout />}>
           <Route index element={<CanteenDashboard />} />
@@ -55,10 +59,9 @@ function App() {
 
         {/* Admin Routes */}
         <Route path="/admin/*" element={<AdminLayout />}>
-          <Route index element={<AdminDashboard />} />
-          <Route path="canteens" element={<AdminCanteens />} />
-          <Route path="chat-support" element={<AdminChatSupport />} />
-          <Route path="users" element={<AdminUsers />} />
+          <Route index element={<AdminHome />} />
+          <Route path="add-product" element={<AdminAddProduct />} />
+          <Route path="products" element={<AdminProducts />} />
         </Route>
  
       </Routes>
@@ -73,5 +76,11 @@ const ConditionalNavbar = () => {
   const hideNavbar = location.pathname.startsWith("/admin") || location.pathname.startsWith("/canteen");
 
   return hideNavbar ? null : <Navbar />;
+};
+const AdminNav = () => {
+  const location = useLocation();
+  const hideNavbar = location.pathname.startsWith("/admin")
+
+  return hideNavbar ? <AdminNavbar /> : null;
 };
 export default App;

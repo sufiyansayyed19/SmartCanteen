@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import profilePicImg from '../assets/prfilePic.png'
 
-const UserProfile = () => {
+const Profile = () => {
   const [user, setUser] = useState({
     name: "John Doe",
     email: "john.doe@example.com",
@@ -55,4 +55,4 @@ const UserProfile = () => {
   );
 };
 
-export default UserProfile;
+export default Profile;
