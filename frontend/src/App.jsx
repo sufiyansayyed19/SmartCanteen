@@ -4,15 +4,11 @@ import { Toaster } from "react-hot-toast";
 import AdminHome from './pages/Admin/AdminHome';
 import AdminProducts from './pages/Admin/AdminProducts';
 import AdminAddProduct from './pages/Admin/AdminAddProduct';
-import AdminLayout from './pages/Admin/AdminLayout';
+import AdminNavbar from './components/Admin/AdminNavbar';
 
 // Canteen imports
-import CanteenCommunication from './pages/Canteen/CanteenCommunication';
-import CanteenDashboard from './pages/Canteen/CanteenDashboard';
-import CanteenLayout from './pages/Canteen/CanteenLayout';
-import CanteenMenu from './pages/Canteen/CanteenMenu';
+import CanteenHome from './pages/Canteen/CanteenHome';
 import CanteenOrders from './pages/Canteen/CanteenOrders';
-import CanteenRefunds from './pages/Canteen/CanteenRefunds';
 
 
 
@@ -28,7 +24,8 @@ import Cart from './pages/Cart';
 import Orders from './pages/Orders';
 import Contact from './pages/Contact';
 import Profile from './pages/profile';
-import AdminNavbar from './components/Admin/AdminNavbar';
+import AdminUpdateProduct from './pages/Admin/AdminUpdateProduct';
+import CanteenNavbar from './components/Canteen/CanteenNavbar';
 function App() {
   return (
     <>
@@ -36,6 +33,7 @@ function App() {
     <Router>
       <ConditionalNavbar />
       <AdminNav/>
+      <CanteenNav/>
       <Routes>
 
         {/* public Routes */}
@@ -48,21 +46,23 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/profile" element={<Profile />} />
 
+        
+
+
         {/* Canteen Routes */}
-        <Route path="/canteen/:canteenId/*" element={<CanteenLayout />}>
-          <Route index element={<CanteenDashboard />} />
-          <Route path="communication" element={<CanteenCommunication />} />
-          <Route path="menu" element={<CanteenMenu />} />
-          <Route path="orders" element={<CanteenOrders />} />
-          <Route path="refunds" element={<CanteenRefunds />} />
-        </Route>
+        <Route path="/canteen" element={<CanteenHome />} />
+        <Route path="/canteen/orders" element={<CanteenOrders />} />
+
+
 
         {/* Admin Routes */}
-        <Route path="/admin/*" element={<AdminLayout />}>
-          <Route index element={<AdminHome />} />
-          <Route path="add-product" element={<AdminAddProduct />} />
-          <Route path="products" element={<AdminProducts />} />
-        </Route>
+        <Route path="/admin" element={<AdminHome />} />
+        <Route path="/admin/add-product" element={<AdminAddProduct />} />
+        <Route path="/admin/products" element={<AdminProducts />} />
+        <Route path="/admin/edit-product/:id" element={<AdminUpdateProduct />} />
+
+        
+    
  
       </Routes>
       <Footer/>
@@ -83,4 +83,11 @@ const AdminNav = () => {
 
   return hideNavbar ? <AdminNavbar /> : null;
 };
+const CanteenNav = () => {
+  const location = useLocation();
+  const hideNavbar = location.pathname.startsWith("/canteen")
+
+  return hideNavbar ? <CanteenNavbar /> : null;
+};
+
 export default App;

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MdCloudUpload, MdFastfood, MdAttachMoney, MdDescription, MdCategory, MdStar, MdCheck } from "react-icons/md";
 import { FiAlertCircle } from "react-icons/fi";
+import useAdminStore from "../../store/adminStore";
 
 const AdminAddProduct = () => {
   const navigate = useNavigate();
@@ -9,7 +10,7 @@ const AdminAddProduct = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [imagePreview, setImagePreview] = useState(null);
-  
+  const { addProduct } = useAdminStore();
   // Form state
   const [formData, setFormData] = useState({
     name: "",
@@ -22,14 +23,7 @@ const AdminAddProduct = () => {
   });
 
   // Categories for the dropdown
-  const categories = [
-    "breakfast",
-    "lunch",
-    "dinner",
-    "snacks",
-    "beverages",
-    "desserts"
-  ];
+  const categories = ["today's special","combo", "breakfast", "lunch", "dinner", "chips", "biscuits", "drink", "juice", "sweet"];
 
   // Handle form input changes
   const handleChange = (e) => {
@@ -88,7 +82,7 @@ const AdminAddProduct = () => {
       };
       
       console.log("Product added:", newProduct);
-      
+      addProduct (newProduct); 
       // Show success message
       setSuccessMessage("Product added successfully!");
       

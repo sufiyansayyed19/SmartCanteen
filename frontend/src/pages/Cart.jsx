@@ -27,7 +27,7 @@ const Cart = () => {
          toast.error("Please select a payment method");
        } else {
          setOrderItems(cartItems);
-         setCartItems([]);
+         setCartItems([]); 
          setIsPaymentChosen(false);
          navigate('/orders');
        }

@@ -1,0 +1,3 @@
+AdminProduct
+    1. instead of defining categories here define it in store as it is used by two or more components and have scope of Changing
+

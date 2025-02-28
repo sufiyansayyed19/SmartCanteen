@@ -3,6 +3,8 @@ import RazorpayLogo from  '../assets/razorpay_logo.png';
 import { useState } from 'react';
 import useAppStore from '../store/appStore';
 
+
+
 const PaymentMethod = () => {
     const [ method, setMethod ] = useState('');
     const { setIsPaymentChosen } = useAppStore();

@@ -1,0 +1,7 @@
+Task: 
+1. Today's special adding
+2. isVeg and onDelete prop warning
+3. handling zustand for adding, deleting and updating AdminProduct
+4. Changing categories for Admin Adding products
+5. UpperCasing Admin filter
+6. Adding veg nonveg tag on user page

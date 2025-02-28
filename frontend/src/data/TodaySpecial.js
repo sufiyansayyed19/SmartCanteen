@@ -14,8 +14,9 @@ const TodaySpecial = [
     name: "Fries with Coke",
     price: 120,
     desc: "Crispy golden fries served with a chilled glass of coke. Perfect snack combo.",
-    category: "Combos",
+    category: "today's special",
     rating: 4.5,
+    isVeg: true, // Added isVeg property
   },
   {
     id: 2,
@@ -23,8 +24,9 @@ const TodaySpecial = [
     name: "Sandwich with Fries",
     price: 140,
     desc: "Grilled sandwich with fresh veggies and crispy fries. A light and tasty combo.",
-    category: "Combos",
+    category: "today's special",
     rating: 4.3,
+    isVeg: true, // Added isVeg property
   },
   {
     id: 3,
@@ -32,8 +34,9 @@ const TodaySpecial = [
     name: "Samosa Pav",
     price: 50,
     desc: "Spicy samosa served in a pav (bread) with chutney. A Mumbai street food favorite.",
-    category: "Breakfast",
+    category: "today's special",
     rating: 4.6,
+    isVeg: true, // Added isVeg property
   },
   {
     id: 4,
@@ -41,8 +44,9 @@ const TodaySpecial = [
     name: "Masala Dosa",
     price: 120,
     desc: "Crispy South Indian crepe filled with spiced potatoes, served with sambar and chutney.",
-    category: "Breakfast",
+    category: "today's special",
     rating: 4.7,
+    isVeg: true, // Added isVeg property
   },
   {
     id: 5,
@@ -50,8 +54,9 @@ const TodaySpecial = [
     name: "Dal Rice",
     price: 80,
     desc: "Simple yellow dal with steamed rice, served with pickle and papad. A staple comfort meal.",
-    category: "Lunch",
+    category: "today's special",
     rating: 4.2,
+    isVeg: true, // Added isVeg property
   },
   {
     id: 6,
@@ -59,8 +64,9 @@ const TodaySpecial = [
     name: "Gulab Jamun",
     price: 15,
     desc: "Soft and syrupy gulab jamun, a classic Indian sweet. Served warm.",
-    category: "Sweet",
+    category: "today's special",
     rating: 4.7,
+    isVeg: true, // Added isVeg property
   },
   {
     id: 7,
@@ -68,8 +74,9 @@ const TodaySpecial = [
     name: "Watermelon Juice",
     price: 55,
     desc: "Cool and hydrating juice made from fresh watermelon. Ideal for hot days.",
-    category: "Juices",
+    category: "today's special",
     rating: 4.6,
+    isVeg: true, // Added isVeg property
   },
   {
     id: 8,
@@ -77,8 +84,9 @@ const TodaySpecial = [
     name: "Red Velvet Cupcake",
     price: 30,
     desc: "A single red velvet cupcake with cream cheese frosting. A delightful indulgence.",
-    category: "Sweet",
+    category: "today's special",
     rating: 4.6,
+    isVeg: false, // Added isVeg property
   },
 ];
 

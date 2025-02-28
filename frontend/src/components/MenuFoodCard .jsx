@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const MenuFoodCard = ({ id, name, price, desc, img, rating, handleToast }) => {
   const { addToCart, cart } = useCartStore();
   return (
-    <div className="font-bold w-[8rem] md:w-[12rem] bg-white p-3 md:p-4 flex flex-col justify-between rounded-2xl gap-1.5 shadow-xl border-[1px]">
+    <div className="font-bold w-[8rem] md:w-[12rem] bg-white p-2 md:p-4 flex flex-col justify-between rounded-2xl gap-1.5 shadow-xl border-[1px]">
       {/* Image */}
       <div className="flex justify-center">
         <img

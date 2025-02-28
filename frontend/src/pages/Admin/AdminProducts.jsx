@@ -14,11 +14,12 @@ const AdminProductsPage = () => {
   const navigate = useNavigate();
   const AllProduct = useAdminStore((state) => state.AllProducts)
   const [products, setProducts] = useState(AllProduct);
-  const categories = [
-    "TodaySpecial", "Combos", "Breakfast", "Lunch", 
-    "Dinner", "Chips", "Biscuits", "Drinks", "Juices", "Sweets"
-  ];
-  const values = ["combo", "breakfast", "lunch", "dinner", "chips", "biscuits", "drink", "juice", "sweet"];
+  // const categories = [
+  //   "TodaySpecial", "Combos", "Breakfast", "Lunch", 
+  //   "Dinner", "Chips", "Biscuits", "Drinks", "Juices", "Sweets"
+  // ];
+  
+  const categories = ["Today's special", "Combo", "Breakfast", "Lunch", "Dinner", "Chips", "Biscuits", "Drink", "Juice", "Sweet"];
 
 
 
@@ -34,7 +35,7 @@ const AdminProductsPage = () => {
     let result = [...AllProduct];
     
     if (activeCategory !== "All") {
-      result = result.filter(product => product.category === activeCategory);
+      result = result.filter(product => product.category === activeCategory.toLowerCase());
     }
     
     if (searchTerm) {
@@ -106,7 +107,7 @@ const AdminProductsPage = () => {
 
           {/* Category Filter Component */}
           <AdminCategoryFilter 
-            categories={values}
+            categories={categories}
             activeCategory={activeCategory}
             setActiveCategory={setActiveCategory}
           />
