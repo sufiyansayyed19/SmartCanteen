@@ -17,7 +17,7 @@ const AdminCategoryFilter = ({ categories, activeCategory, setActiveCategory }) 
       <div className="hidden md:flex items-center gap-2 space-x-1 overflow-x-auto pb-2">
         <button
           onClick={() => setActiveCategory("All")}
-          className={`px-4 py-1.5 text-sm rounded-md whitespace-nowrap transition-colors ${
+          className={`px-3 py-1.5 text-sm rounded-md whitespace-nowrap transition-colors ${
             activeCategory === "All"
               ? "bg-orange-500 text-white"
               : "bg-gray-100 text-gray-700 hover:bg-gray-200"
@@ -29,7 +29,7 @@ const AdminCategoryFilter = ({ categories, activeCategory, setActiveCategory }) 
           <button
             key={category}
             onClick={() => setActiveCategory(category)}
-            className={`px-4 py-1.5 text-sm rounded-lg whitespace-nowrap transition-colors ${
+            className={`px-3 py-1.5 text-sm rounded-lg whitespace-nowrap transition-colors ${
               activeCategory === category
                 ? "bg-orange-500 text-white"
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
@@ -76,6 +76,7 @@ const AdminCategoryFilter = ({ categories, activeCategory, setActiveCategory }) 
                 }`}
               >
                 {category}
+                {/* {console.log(category)} */}
               </button>
             ))}
           </div>
