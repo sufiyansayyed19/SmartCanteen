@@ -1,15 +1,24 @@
 import { FiEdit, FiTrash2 } from "react-icons/fi";
 import { BiRupee } from "react-icons/bi";
 import PropTypes from 'prop-types';
-const AdminProductCard = ({ product, onDelete, onEdit }) => {
-  // Open delete confirmation modal
-  const openDeleteModal = () => {
-    onDelete(product);
+
+const AdminProductCard = ({ product, onRemove, onEdit }) => {
+  // Open remove confirmation modal
+  const openRemoveModal = () => {
+    if (onRemove) {
+      onRemove(product);
+    } else {
+      console.warn("onRemove function is not provided.");
+    }
   };
 
   const openEditModal = () => {
-    onEdit(product);
-  };  
+    if (onEdit) {
+      onEdit(product);
+    } else {
+      console.warn("onEdit function is not provided.");
+    }
+  };
 
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow w-full max-w-xs mx-auto h-80">
@@ -68,8 +77,8 @@ const AdminProductCard = ({ product, onDelete, onEdit }) => {
             </button>
             <button 
               className="p-1.5 text-red-500 hover:bg-red-50 rounded-full transition-colors"
-              title="Delete Product"
-              onClick={openDeleteModal}
+              title="Remove Product"
+              onClick={openRemoveModal}
             >
               <FiTrash2 size={16} />
             </button>
@@ -81,17 +90,17 @@ const AdminProductCard = ({ product, onDelete, onEdit }) => {
 };
 
 AdminProductCard.propTypes = {
-    product: PropTypes.shape({
-      img: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      isVeg: PropTypes.bool.isRequired,
-      category: PropTypes.string.isRequired,
-      rating: PropTypes.number.isRequired,
-      desc: PropTypes.string,
-      price: PropTypes.number.isRequired,
-    }).isRequired,
-    onDelete: PropTypes.func.isRequired,
-    onEdit: PropTypes.func.isRequired,
-  };
-  
+  product: PropTypes.shape({
+    img: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    isVeg: PropTypes.bool,
+    category: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    desc: PropTypes.string,
+    price: PropTypes.number.isRequired,
+  }).isRequired,
+  onRemove: PropTypes.func, // Updated to onRemove
+  onEdit: PropTypes.func,
+};
+
 export default AdminProductCard;

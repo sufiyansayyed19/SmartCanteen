@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 
-const AdminDeleteConfirmation = ({ 
+const AdminProductRemove = ({ 
   isOpen, 
-  itemToDelete, 
+  itemToRemove, 
   onCancel, 
   onConfirm 
 }) => {
@@ -13,7 +13,7 @@ const AdminDeleteConfirmation = ({
       <div className="bg-white rounded-lg p-6 max-w-md mx-4 md:mx-auto">
         <h3 className="text-lg font-bold text-gray-900 mb-4">Confirm Delete</h3>
         <p className="text-gray-600 mb-6">
-          Are you sure you want to delete &quot;{itemToDelete?.name}&quot;? This action cannot be undone.
+          Are you sure you want to delete &quot;{itemToRemove?.name}&quot;? This action cannot be undone.
         </p>
         <div className="flex justify-end space-x-3">
           <button
@@ -23,7 +23,7 @@ const AdminDeleteConfirmation = ({
             Cancel
           </button>
           <button
-            onClick={() => onConfirm(itemToDelete.id)}
+            onClick={() => onConfirm(itemToRemove.id)}
             className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
           >
             Delete
@@ -35,14 +35,14 @@ const AdminDeleteConfirmation = ({
 };
 
 // Prop validation
-AdminDeleteConfirmation.propTypes = {
+AdminProductRemove.propTypes = {
   isOpen: PropTypes.bool.isRequired,
-  itemToDelete: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+  itemToRemove: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     name: PropTypes.string,
   }),
   onCancel: PropTypes.func.isRequired,
   onConfirm: PropTypes.func.isRequired,
 };
 
-export default AdminDeleteConfirmation;
+export default AdminProductRemove;

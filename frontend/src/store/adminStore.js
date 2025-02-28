@@ -76,7 +76,7 @@ const useAdminStore = create(
           
           // Update local state
           set((state) => ({
-            AllProducts: state.AllProducts.filter((product) => product._id !== productId)
+            AllProducts: state.AllProducts.filter((product) => product.id !== Number(productId))
           }));
           
           return { success: true };

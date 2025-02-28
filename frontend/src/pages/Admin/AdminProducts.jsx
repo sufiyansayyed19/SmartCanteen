@@ -6,13 +6,14 @@ import AdminProductCard from "../../components/Admin/AdminProductCard"; // Impor
 import AdminCategoryFilter from "../../components/Admin/AdminCategoryFilter"; // Import the AdminCategoryFilter component
 import AdminProductRemove from "../../components/Admin/AdminProductRemove"; // Updated import for AdminProductRemove
 import useAdminStore from "../../store/adminStore";
-
+import toast from 'react-hot-toast';
 
 
 
 const AdminProductsPage = () => {
   const navigate = useNavigate();
-  const AllProduct = useAdminStore((state) => state.AllProducts)
+  const AllProduct = useAdminStore((state) => state.AllProducts);
+  const { deleteProduct } = useAdminStore();
   const [products, setProducts] = useState(AllProduct);
   // const categories = [
   //   "TodaySpecial", "Combos", "Breakfast", "Lunch", 
@@ -52,12 +53,16 @@ const AdminProductsPage = () => {
   }, [AllProduct, activeCategory, searchTerm]);
 
   const handleRemoveProduct = (id) => {
+    console.log(id)
+    deleteProduct(id);
     setProducts(products.filter(product => product.id !== id));
     setShowRemoveModal(false);
+    toast.success("Prodcut sucessfully deleted");
   };
 
   const openRemoveModal = (product) => {
     setProductToRemove(product);
+    // console.log(productToRemove)
     setShowRemoveModal(true);
   };
 

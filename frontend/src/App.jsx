@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { Toaster } from "react-hot-toast";
 // Admin imports
 import AdminHome from './pages/Admin/AdminHome';
+import AdminLoginPage from './pages/Admin/AdminLoginPage';
 import AdminProducts from './pages/Admin/AdminProducts';
 import AdminAddProduct from './pages/Admin/AdminAddProduct';
 import AdminNavbar from './components/Admin/AdminNavbar';
@@ -25,7 +26,7 @@ import Orders from './pages/Orders';
 import Contact from './pages/Contact';
 import Profile from './pages/profile';
 import AdminUpdateProduct from './pages/Admin/AdminUpdateProduct';
-import CanteenNavbar from './components/Canteen/CanteenNavbar';
+// import CanteenNavbar from './components/Canteen/CanteenNavbar';
 function App() {
   return (
     <>
@@ -33,7 +34,7 @@ function App() {
     <Router>
       <ConditionalNavbar />
       <AdminNav/>
-      <CanteenNav/>
+      {/* <CanteenNav/> */}
       <Routes>
 
         {/* public Routes */}
@@ -60,6 +61,8 @@ function App() {
         <Route path="/admin/add-product" element={<AdminAddProduct />} />
         <Route path="/admin/products" element={<AdminProducts />} />
         <Route path="/admin/edit-product/:id" element={<AdminUpdateProduct />} />
+        <Route path="/admin/login" element={<AdminLoginPage />} />
+        
 
         
     
@@ -83,11 +86,11 @@ const AdminNav = () => {
 
   return hideNavbar ? <AdminNavbar /> : null;
 };
-const CanteenNav = () => {
-  const location = useLocation();
-  const hideNavbar = location.pathname.startsWith("/canteen")
+// const CanteenNav = () => {
+//   const location = useLocation();
+//   const hideNavbar = location.pathname.startsWith("/canteen")
 
-  return hideNavbar ? <CanteenNavbar /> : null;
-};
+//   return hideNavbar ? <CanteenNavbar /> : null;
+// };
 
 export default App;

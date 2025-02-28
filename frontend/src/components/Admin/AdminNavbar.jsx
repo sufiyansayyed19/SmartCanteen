@@ -38,12 +38,12 @@ const AdminNavbar = () => {
       link: "/admin/add-product",
       icon: <MdOutlineAddBox className="text-lg" />
     },
-    // {
-    //   id: 4,
-    //   name: "Orders",
-    //   link: "/admin/orders",
-    //   icon: <TbShoppingCartCog className="text-lg" />
-    // }
+    {
+      id: 4,
+      name: "Orders",
+      link: "/admin/orders",
+      icon: <TbShoppingCartCog className="text-lg" />
+    }
   ];
 
   return (
@@ -63,7 +63,7 @@ const AdminNavbar = () => {
 
             {/* Desktop Menu Section */}
             <div className="hidden md:block">
-              <ul className="flex items-center gap-8 text-gray-300 p-4">
+              <ul className="flex items-center gap-6 text-gray-300 p-4">
                 {AdminNavbarData.map((item) => {
                   return (
                     <li key={item.id} className="relative">
@@ -97,6 +97,12 @@ const AdminNavbar = () => {
                 {isDropdownVisible && (
                   <div className="absolute right-0 pt-4">
                     <div className="flex flex-col w-36 gap-2 px-5 py-3 bg-gray-700 text-gray-200 rounded text-sm">
+                      <p
+                        onClick={() => handleNavigation("/admin/profile")}
+                        className="cursor-pointer hover:text-white"
+                      >
+                        Admin Profile
+                      </p>
                       <p
                         onClick={() => handleNavigation("/admin/settings")}
                         className="cursor-pointer hover:text-white"

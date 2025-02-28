@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 import NavbarData from '../data/NavbarData';
 
+
 const MobileNavbar = () => {
     const [visible, setVisible] = useState(false);   
 
