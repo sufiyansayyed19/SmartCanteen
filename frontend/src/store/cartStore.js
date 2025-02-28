@@ -5,45 +5,44 @@ const useCartStore = create((set) => ({
 
   addToCart: (item) => {
     set((state) => {
-      const existingItem = state.cartItems.find((cartItem) => cartItem.id === item.id);
+      const existingItem = state.cartItems.find((cartItem) => cartItem._id === item._id); // Changed id to _id
 
       if (existingItem) {
         return {
           cartItems: state.cartItems.map((cartItem) =>
-            cartItem.id === item.id
-              ? { ...cartItem, qty: cartItem.qty + 1 } 
+            cartItem._id === item._id // Changed id to _id
+              ? { ...cartItem, qty: cartItem.qty + 1 }
               : cartItem
           ),
         };
       } else {
         return {
-          cartItems: [...state.cartItems, { ...item, qty: 1, status: item.status || "Due" }], 
+          cartItems: [...state.cartItems, { ...item, qty: 1, status: item.status || "Due" }],
+        };
       }
-    }});
+    });
   },
 
-  removeFromCart: (id) =>
+  removeFromCart: (_id) => // Changed parameter from id to _id
     set((state) => ({
-      cartItems: state.cartItems.filter((item) => item.id !== id),
+      cartItems: state.cartItems.filter((item) => item._id !== _id), // Changed id to _id
     })),
 
-  incrementQty: (id) =>
+  incrementQty: (_id) => // Changed parameter from id to _id
     set((state) => ({
       cartItems: state.cartItems.map((item) =>
-        item.id === id ? { ...item, qty: item.qty + 1 } : item
+        item._id === _id ? { ...item, qty: item.qty + 1 } : item // Changed id to _id
       ),
     })),
 
-  decrementQty: (id) =>
+  decrementQty: (_id) => // Changed parameter from id to _id
     set((state) => ({
       cartItems: state.cartItems.map((item) =>
-        item.id === id && item.qty > 1 ? { ...item, qty: item.qty - 1 } : item
+        item._id === _id && item.qty > 1 ? { ...item, qty: item.qty - 1 } : item // Changed id to _id
       ),
     })),
 
   setCartItems: (value) => set({ cartItems: value }), 
-
-  
 }));
 
 export default useCartStore;

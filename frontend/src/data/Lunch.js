@@ -17,7 +17,7 @@ import img48 from '../assets/Lunch/img15_ChickenCurryRoti.jpeg';
 const Lunch = [
   // Vegetarian Items (34-43)
   {
-    id: 34,
+    _id: "34",
     img: img34,
     name: "Dal Rice",
     price: 80,
@@ -27,7 +27,7 @@ const Lunch = [
     isVeg: true,
   },
   {
-    id: 35,
+    _id: "35",
     img: img35,
     name: "Rajma Chawal",
     price: 90,
@@ -37,7 +37,7 @@ const Lunch = [
     isVeg: true,
   },
   {
-    id: 36,
+    _id: "36",
     img: img36,
     name: "Paneer Butter Masala",
     price: 110,
@@ -47,7 +47,7 @@ const Lunch = [
     isVeg: true,
   },
   {
-    id: 37,
+    _id: "37",
     img: img37,
     name: "Chole Rice",
     price: 90,
@@ -57,7 +57,7 @@ const Lunch = [
     isVeg: true,
   },
   {
-    id: 38,
+    _id: "38",
     img: img38,
     name: "Mix Veg Rice",
     price: 85,
@@ -67,7 +67,7 @@ const Lunch = [
     isVeg: true,
   },
   {
-    id: 39,
+    _id: "39",
     img: img39,
     name: "Aloo Palak Rice",
     price: 85,
@@ -77,7 +77,7 @@ const Lunch = [
     isVeg: true,
   },
   {
-    id: 40,
+    _id: "40",
     img: img40,
     name: "Dal Fry Rice",
     price: 85,
@@ -87,7 +87,7 @@ const Lunch = [
     isVeg: true,
   },
   {
-    id: 41,
+    _id: "41",
     img: img41,
     name: "Aloo Matar Rice",
     price: 85,
@@ -97,7 +97,7 @@ const Lunch = [
     isVeg: true,
   },
   {
-    id: 42,
+    _id: "42",
     img: img42,
     name: "Veg Pulao",
     price: 95,
@@ -107,7 +107,7 @@ const Lunch = [
     isVeg: true,
   },
   {
-    id: 43,
+    _id: "43",
     img: img43,
     name: "Kadi Pakoda Rice",
     price: 90,
@@ -119,7 +119,7 @@ const Lunch = [
 
   // Non-Vegetarian Items (44-48)
   {
-    id: 44,
+    _id: "44",
     img: img44,
     name: "Chicken Curry Rice",
     price: 120,
@@ -129,7 +129,7 @@ const Lunch = [
     isVeg: false,
   },
   {
-    id: 45,
+    _id: "45",
     img: img45,
     name: "Chicken Biryani",
     price: 130,
@@ -139,7 +139,7 @@ const Lunch = [
     isVeg: false,
   },
   {
-    id: 46,
+    _id: "46",
     img: img46,
     name: "Chicken Masala Rice",
     price: 125,
@@ -149,7 +149,7 @@ const Lunch = [
     isVeg: false,
   },
   {
-    id: 47,
+    _id: "47",
     img: img47,
     name: "Chicken Fried Rice",
     price: 110,
@@ -159,7 +159,7 @@ const Lunch = [
     isVeg: false,
   },
   {
-    id: 48,
+    _id: "48",
     img: img48,
     name: "Chicken Curry Roti",
     price: 115,

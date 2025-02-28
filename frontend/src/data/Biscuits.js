@@ -11,7 +11,7 @@ import img83 from '../assets/Biscuits/img10_Oreo.png';
 
 const Biscuits = [
   {
-    id: 74,
+    _id: "74",
     img: img74,
     name: "Parle-G",
     price: 5,
@@ -21,7 +21,7 @@ const Biscuits = [
     isVeg: true,
   },
   {
-    id: 75,
+    _id: "75",
     img: img75,
     name: "Marie Gold",
     price: 10,
@@ -31,7 +31,7 @@ const Biscuits = [
     isVeg: true,
   },
   {
-    id: 76,
+    _id: "76",
     img: img76,
     name: "Good Day",
     price: 10,
@@ -41,7 +41,7 @@ const Biscuits = [
     isVeg: true,
   },
   {
-    id: 77,
+    _id: "77",
     img: img77,
     name: "Britannia Tiger",
     price: 10,
@@ -51,7 +51,7 @@ const Biscuits = [
     isVeg: true,
   },
   {
-    id: 78,
+    _id: "78",
     img: img78,
     name: "50-50",
     price: 10,
@@ -61,7 +61,7 @@ const Biscuits = [
     isVeg: true,
   },
   {
-    id: 79,
+    _id: "79",
     img: img79,
     name: "Hide & Seek",
     price: 15,
@@ -71,7 +71,7 @@ const Biscuits = [
     isVeg: true,
   },
   {
-    id: 80,
+    _id: "80",
     img: img80,
     name: "Bourbon",
     price: 10,
@@ -81,7 +81,7 @@ const Biscuits = [
     isVeg: true,
   },
   {
-    id: 81,
+    _id: "81",
     img: img81,
     name: "Milk Bikis",
     price: 10,
@@ -91,7 +91,7 @@ const Biscuits = [
     isVeg: true,
   },
   {
-    id: 82,
+    _id: "82",
     img: img82,
     name: "Coconut Crunch",
     price: 15,
@@ -101,7 +101,7 @@ const Biscuits = [
     isVeg: true,
   },
   {
-    id: 83,
+    _id: "83",
     img: img83,
     name: "Oreo",
     price: 15,

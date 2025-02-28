@@ -6,7 +6,7 @@ import img108 from '../assets/Sweets/img5_Rasgulla.jpeg';
 
 const Sweet = [
   {
-    id: 104,
+    _id: "104",
     img: img104,
     name: "Chocolate Pastry",
     price: 25,
@@ -15,7 +15,7 @@ const Sweet = [
     rating: 4.5,
   },
   {
-    id: 105,
+    _id: "105",
     img: img105,
     name: "Vanilla Cake Slice",
     price: 20,
@@ -24,7 +24,7 @@ const Sweet = [
     rating: 4.3,
   },
   {
-    id: 106,
+    _id: "106",
     img: img106,
     name: "Red Velvet Cupcake",
     price: 30,
@@ -33,7 +33,7 @@ const Sweet = [
     rating: 4.6,
   },
   {
-    id: 107,
+    _id: "107",
     img: img107,
     name: "Gulab Jamun",
     price: 15,
@@ -42,7 +42,7 @@ const Sweet = [
     rating: 4.7,
   },
   {
-    id: 108,
+    _id: "108",
     img: img108,
     name: "Rasgulla",
     price: 10,

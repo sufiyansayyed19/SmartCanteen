@@ -16,7 +16,7 @@ import img33 from '../assets/Breakfast/img15_Rava_Idli.jpeg';
 
 const Breakfast = [
   {
-    id: 19,
+    _id: "19",
     img: img19,
     name: "Plain Dosa",
     price: 100,
@@ -26,7 +26,7 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 20,
+    _id: "20",
     img: img20,
     name: "Idli Sambar",
     price: 80,
@@ -36,7 +36,7 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 21,
+    _id: "21",
     img: img21,
     name: "Chole Bhature",
     price: 150,
@@ -46,7 +46,7 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 22,
+    _id: "22",
     img: img22,
     name: "Onion Uttapam",
     price: 120,
@@ -56,7 +56,7 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 23,
+    _id: "23",
     img: img23,
     name: "Aloo Paratha",
     price: 90,
@@ -66,7 +66,7 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 24,
+    _id: "24",
     img: img24,
     name: "Vada Pav",
     price: 50,
@@ -76,7 +76,7 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 25,
+    _id: "25",
     img: img25,
     name: "Upma",
     price: 70,
@@ -86,7 +86,7 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 26,
+    _id: "26",
     img: img26,
     name: "Masala Dosa",
     price: 130,
@@ -96,7 +96,7 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 27,
+    _id: "27",
     img: img27,
     name: "Poha",
     price: 60,
@@ -106,7 +106,7 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 28,
+    _id: "28",
     img: img28,
     name: "Misal Pav",
     price: 110,
@@ -116,7 +116,7 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 29,
+    _id: "29",
     img: img29,
     name: "Paneer Paratha",
     price: 100,
@@ -126,7 +126,7 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 30,
+    _id: "30",
     img: img30,
     name: "Medu Vada",
     price: 70,
@@ -136,7 +136,7 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 31,
+    _id: "31",
     img: img31,
     name: "Samosa with Chai",
     price: 60,
@@ -146,7 +146,7 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 32,
+    _id: "32",
     img: img32,
     name: "Puri Bhaji",
     price: 90,
@@ -156,7 +156,7 @@ const Breakfast = [
     isVeg: true,
   },
   {
-    id: 33,
+    _id: "33",
     img: img33,
     name: "Rava Idli",
     price: 85,

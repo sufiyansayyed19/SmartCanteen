@@ -17,7 +17,7 @@ import img63 from '../assets/Dinner/img15_ChickenThali.jpeg';
 const Dinner = [
   // Vegetarian Items (49-58)
   {
-    id: 49,
+    _id: "49",
     img: img49,
     name: "Roti Dal",
     price: 70,
@@ -27,7 +27,7 @@ const Dinner = [
     isVeg: true,
   },
   {
-    id: 50,
+    _id: "50",
     img: img50,
     name: "Paneer Paratha",
     price: 95,
@@ -37,7 +37,7 @@ const Dinner = [
     isVeg: true,
   },
   {
-    id: 51,
+    _id: "51",
     img: img51,
     name: "Mix Veg Roti",
     price: 80,
@@ -47,7 +47,7 @@ const Dinner = [
     isVeg: true,
   },
   {
-    id: 52,
+    _id: "52",
     img: img52,
     name: "Palak Rice Bowl",
     price: 85,
@@ -57,7 +57,7 @@ const Dinner = [
     isVeg: true,
   },
   {
-    id: 53,
+    _id: "53",
     img: img53,
     name: "Veg Khichdi",
     price: 75,
@@ -67,7 +67,7 @@ const Dinner = [
     isVeg: true,
   },
   {
-    id: 54,
+    _id: "54",
     img: img54,
     name: "Chole Kulcha",
     price: 90,
@@ -77,7 +77,7 @@ const Dinner = [
     isVeg: true,
   },
   {
-    id: 55,
+    _id: "55",
     img: img55,
     name: "Aloo Jeera Rice",
     price: 80,
@@ -87,7 +87,7 @@ const Dinner = [
     isVeg: true,
   },
   {
-    id: 56,
+    _id: "56",
     img: img56,
     name: "Veg Fried Rice",
     price: 85,
@@ -97,7 +97,7 @@ const Dinner = [
     isVeg: true,
   },
   {
-    id: 57,
+    _id: "57",
     img: img57,
     name: "Dal Khichdi",
     price: 75,
@@ -107,7 +107,7 @@ const Dinner = [
     isVeg: true,
   },
   {
-    id: 58,
+    _id: "58",
     img: img58,
     name: "Veg Thali",
     price: 110,
@@ -119,7 +119,7 @@ const Dinner = [
 
   // Non-Vegetarian Items (59-63)
   {
-    id: 59,
+    _id: "59",
     img: img59,
     name: "Chicken Roti",
     price: 115,
@@ -129,7 +129,7 @@ const Dinner = [
     isVeg: false,
   },
   {
-    id: 60,
+    _id: "60",
     img: img60,
     name: "Chicken Pulao",
     price: 120,
@@ -139,7 +139,7 @@ const Dinner = [
     isVeg: false,
   },
   {
-    id: 61,
+    _id: "61",
     img: img61,
     name: "Butter Chicken Bowl",
     price: 130,
@@ -149,7 +149,7 @@ const Dinner = [
     isVeg: false,
   },
   {
-    id: 62,
+    _id: "62",
     img: img62,
     name: "Chicken Fried Rice Combo",
     price: 125,
@@ -159,7 +159,7 @@ const Dinner = [
     isVeg: false,
   },
   {
-    id: 63,
+    _id: "63",
     img: img63,
     name: "Chicken Thali",
     price: 140,

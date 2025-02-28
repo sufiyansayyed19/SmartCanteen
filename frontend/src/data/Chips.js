@@ -11,7 +11,7 @@ import img73 from '../assets/Chips/img10_CurryChipspacket.png';
 
 const Chips = [
   {
-    id: 64,
+    _id: "64",
     img: img64,
     name: "Masala Chips",
     price: 15,
@@ -21,7 +21,7 @@ const Chips = [
     isVeg: true,
   },
   {
-    id: 65,
+    _id: "65",
     img: img65,
     name: "Tomato Chips",
     price: 10,
@@ -31,7 +31,7 @@ const Chips = [
     isVeg: true,
   },
   {
-    id: 66,
+    _id: "66",
     img: img66,
     name: "Cream & Onion Chips",
     price: 15,
@@ -41,7 +41,7 @@ const Chips = [
     isVeg: true,
   },
   {
-    id: 67,
+    _id: "67",
     img: img67,
     name: "Cheese Chips",
     price: 15,
@@ -51,7 +51,7 @@ const Chips = [
     isVeg: true,
   },
   {
-    id: 68,
+    _id: "68",
     img: img68,
     name: "Chilli Chips",
     price: 15,
@@ -61,7 +61,7 @@ const Chips = [
     isVeg: true,
   },
   {
-    id: 69,
+    _id: "69",
     img: img69,
     name: "Salted Chips",
     price: 10,
@@ -71,7 +71,7 @@ const Chips = [
     isVeg: true,
   },
   {
-    id: 70,
+    _id: "70",
     img: img70,
     name: "Lemon Chips",
     price: 15,
@@ -81,7 +81,7 @@ const Chips = [
     isVeg: true,
   },
   {
-    id: 71,
+    _id: "71",
     img: img71,
     name: "Peanut Chips",
     price: 15,
@@ -91,7 +91,7 @@ const Chips = [
     isVeg: true,
   },
   {
-    id: 72,
+    _id: "72",
     img: img72,
     name: "Chatpata Chips",
     price: 15,
@@ -101,7 +101,7 @@ const Chips = [
     isVeg: true,
   },
   {
-    id: 73,
+    _id: "73",
     img: img73,
     name: "Curry Chips",
     price: 15,
