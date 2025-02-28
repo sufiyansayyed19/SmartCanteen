@@ -30,7 +30,7 @@ const AdminProductCard = ({ product, onDelete, onEdit }) => {
         </div>
         <div className="absolute top-0 right-0 m-2">
           <span className="inline-block px-2 py-1 text-xs bg-blue-500 text-white rounded-full">
-            {product.category}
+            {product.category.charAt(0).toUpperCase() + product.category.slice(1)}
           </span>
         </div>
       </div>
