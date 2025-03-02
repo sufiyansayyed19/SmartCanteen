@@ -1,8 +1,8 @@
+import { useState, useEffect, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/img1.png";
 import { VscAccount } from "react-icons/vsc";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import { RiDashboardLine } from "react-icons/ri";
 import { MdOutlineInventory2, MdOutlineAddBox } from "react-icons/md";
 import { TbShoppingCartCog } from "react-icons/tb";
@@ -11,6 +11,19 @@ import AdminMobileNavbar from "./AdminMobileNavbar";
 const AdminNavbar = () => {
   const navigate = useNavigate();
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const dropdownRef = useRef(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setIsDropdownVisible(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   // Function to handle navigation and hide the dropdown
   const handleNavigation = (path) => {
@@ -24,26 +37,26 @@ const AdminNavbar = () => {
       id: 1,
       name: "Dashboard",
       link: "/admin",
-      icon: <RiDashboardLine className="text-lg" />
+      icon: <RiDashboardLine className="text-lg" />,
     },
     {
       id: 2,
       name: "Products",
       link: "/admin/products",
-      icon: <MdOutlineInventory2 className="text-lg" />
+      icon: <MdOutlineInventory2 className="text-lg" />,
     },
     {
       id: 3,
       name: "Add Products",
       link: "/admin/add-product",
-      icon: <MdOutlineAddBox className="text-lg" />
+      icon: <MdOutlineAddBox className="text-lg" />,
     },
     {
       id: 4,
       name: "Orders",
       link: "/admin/orders",
-      icon: <TbShoppingCartCog className="text-lg" />
-    }
+      icon: <TbShoppingCartCog className="text-lg" />,
+    },
   ];
 
   return (
@@ -69,8 +82,8 @@ const AdminNavbar = () => {
                     <li key={item.id} className="relative">
                       <NavLink
                         to={item.link}
-                        className={({ isActive }) => 
-                          `flex items-center gap-1 ${isActive ? 'text-white' : 'hover:text-white'}`
+                        className={({ isActive }) =>
+                          `flex items-center gap-1 ${isActive ? "text-white" : "hover:text-white"}`
                         }
                       >
                         {item.icon}
@@ -84,7 +97,7 @@ const AdminNavbar = () => {
 
             {/* Admin Account Section */}
             <div className="flex items-center gap-3 md:gap-5 md:text-2xl text-xl p-4">
-              <div className="hidden md:block group relative mt-2 z-30">
+              <div className="hidden md:block group relative mt-2 z-30" ref={dropdownRef}>
                 {/* Dropdown Toggle Button */}
                 <button
                   onClick={() => setIsDropdownVisible(!isDropdownVisible)}

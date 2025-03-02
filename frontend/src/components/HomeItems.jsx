@@ -17,8 +17,6 @@ const HomeItems = () => {
    const subHeadings = ["🍽️ Combos 🍽️", "🍽️ Breakfast 🍽️", "🍽️ Lunch 🍽️", "🍽️ Snacks 🍽️", "🍽️ Drinks 🍽️", "🍽️ Sweets 🍽️"];
    const FoodData = [Combos, Breakfast, Lunch, Snacks, Drinks, Sweets];
 
-   console.log("TodaySpecial:", JSON.stringify(TodaySpecial, null, 2));
-  console.log("TodaySpecial IDs:", TodaySpecial.map((item) => item._id));
    return (
       <>
          <div className="my-1">

@@ -7,14 +7,30 @@ import MobileNavbar from "./MobileNavbar";
 import NavbarData from "../data/NavbarData";
 import { useNavigate } from "react-router-dom";
 import useCartStore from "../store/cartStore";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import PropTypes from "prop-types";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const dropdownRef = useRef(null);
   const cartCount = useCartStore((state) =>
     state.cartItems.reduce((total, item) => total + (item.qty || 1), 0)
   );
+
+  useEffect(() => {
+      const handleClickOutside = (e) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+          setIsDropdownVisible(false);
+        }
+      };
+  
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+  
+
+
   // Function to handle navigation and hide the dropdown
   const handleNavigation = (path) => {
     navigate(path); // Navigate to the specified path
@@ -71,7 +87,7 @@ const Navbar = () => {
                   {cartCount}
                 </p>
               </Link>
-              <div className="group relative mt-2 z-30">
+              <div className="group relative mt-2 z-30" ref={dropdownRef}>
                 {/* Dropdown Toggle Button */}
                 <button
                   onClick={() => setIsDropdownVisible(!isDropdownVisible)}
