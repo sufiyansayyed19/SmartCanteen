@@ -63,7 +63,7 @@ const Hero = () => {
               Explore Menu
             </button>
             <button 
-              onClick={() => navigate('/Orders')} 
+              onClick={() => navigate('/cart')} 
               className="px-6 py-3 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-400 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               Order Now

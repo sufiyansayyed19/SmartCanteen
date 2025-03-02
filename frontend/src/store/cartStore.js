@@ -4,6 +4,7 @@ const useCartStore = create((set) => ({
   cartItems: [], 
 
   addToCart: (item) => {
+    console.log(item);
     set((state) => {
       const existingItem = state.cartItems.find((cartItem) => cartItem._id === item._id); // Changed id to _id
 

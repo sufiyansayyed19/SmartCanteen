@@ -29,18 +29,18 @@ const AdminDashboardPage = () => {
       acc[product.category] = (acc[product.category] || 0) + 1;
       return acc;
     }, {});
-    
+  
     // Find most popular category
     let popularCategory = "";
     let maxCount = 0;
-    
+  
     Object.entries(categoryCounts).forEach(([category, count]) => {
       if (count > maxCount) {
         maxCount = count;
         popularCategory = category;
       }
     });
-    
+  
     // Set mock data - in real app, this would come from your API
     setStats({
       totalProducts: AllProducts.length,
@@ -50,7 +50,7 @@ const AdminDashboardPage = () => {
       lowStockItems: 5,
       todayOrders: 24,
       popularCategory,
-      categoryCounts
+      categoryCounts,
     });
   }, [AllProducts]);
   
@@ -83,7 +83,7 @@ const AdminDashboardPage = () => {
       {/* Page Header */}
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-gray-800">Admin Dashboard</h1>
-        <p className="text-gray-600">Welcome back! Here's what's happening with your canteen today.</p>
+        <p className="text-gray-600">Welcome back! Here&apos;s what&apos;s happening with your canteen today.</p>
       </div>
       
       {/* Quick Links */}

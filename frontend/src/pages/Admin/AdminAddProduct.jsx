@@ -70,7 +70,7 @@ const AdminAddProduct = () => {
     setTimeout(() => {
       // Create a new product object
       const newProduct = {
-        id: Date.now(), // Generate temporary ID
+        _id: Date.now().toString(), // Generate temporary _id as a string
         name: formData.name,
         price: parseFloat(formData.price),
         desc: formData.desc,
@@ -82,7 +82,7 @@ const AdminAddProduct = () => {
       };
       
       console.log("Product added:", newProduct);
-      addProduct (newProduct); 
+      addProduct(newProduct); 
       // Show success message
       setSuccessMessage("Product added successfully!");
       

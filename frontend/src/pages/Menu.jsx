@@ -1,17 +1,13 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { Breakfast, Biscuits, Chips, Combos, Dinner, Drinks, Juices, Lunch, NavbarData, Sweets, TodaySpecial } from "../data";
+// import { Breakfast, Biscuits, Chips, Combos, Dinner, Drinks, Juices, Lunch, Sweets, TodaySpecial } from "../data"; // Removed NavbarData since it’s unused
 import MenuFoodCard from "../components/MenuFoodCard ";
 import WholeFoodData from "../data/WholeFoodData";
+
 const Menu = () => {
-
-  const subHeadings = ["🔥 Today's Special 🔥", "🍱 Combos 🍱", "🍳 Breakfast 🍳", "🍲 Lunch 🍲", "🥩 Dinner 🥩", "🍟 Chips 🍟", "🍪 Biscuits 🍪", "🥤 Drinks 🥤", "🧃 Juices 🧃", "🍰 Sweets 🍰"];
-
-  const FoodData = [TodaySpecial, Combos, Breakfast, Lunch, Dinner, Chips, Biscuits, Drinks, Juices, Sweets];
-
-
-
-
+  // const subHeadings = ["🔥 Today's Special 🔥", "🍱 Combos 🍱", "🍳 Breakfast 🍳", "🍲 Lunch 🍲", "🥩 Dinner 🥩", "🍟 Chips 🍟", "🍪 Biscuits 🍪", "🥤 Drinks 🥤", "🧃 Juices 🧃", "🍰 Sweets 🍰"];
+  
+  // const FoodData = [TodaySpecial, Combos, Breakfast, Lunch, Dinner, Chips, Biscuits, Drinks, Juices, Sweets];
 
   const [filters, setFilters] = useState({
     category: "All", // Default: Show all categories
@@ -31,15 +27,14 @@ const Menu = () => {
   // Filtered items based on selected category
   const filteredItems =
     filters.category === "All"
-      ? WholeFoodData.sort(() => Math.random() - 0.5)
-      .slice(0, 20)
+      ? WholeFoodData.sort(() => Math.random() - 0.5).slice(0, 20)
       : WholeFoodData.filter((item) => item.category === filters.category);
 
   return (
     <div className="min-h-screen bg-red-50 md:p-6 p-6 pt-2">
       <div className="flex flex-col md:flex-row w-full">
         {/* Filters Section (Left Side) */}
-        <div className="w-full md:w-[20rem] flex-shrink-0 bg-white md:p-6 p-6 mt-3 md:mt-0 pt-3  rounded-lg shadow-md md:mb-0 md:mr-6 lg:min-h-screen">
+        <div className="w-full md:w-[20rem] flex-shrink-0 bg-white md:p-6 p-6 mt-3 md:mt-0 pt-3 rounded-lg shadow-md md:mb-0 md:mr-6 lg:min-h-screen">
           <h2 className="text-lg md:text-xl font-bold text-gray-800 mb-1 md:mb-5 md:mt-2">
             Filters
           </h2>
@@ -63,9 +58,8 @@ const Menu = () => {
               <option value="chips">Chip Snacks</option>
               <option value="biscuits">Biscuits</option>
               <option value="drink">Drinks</option>
-              <option value="juice">Jucies</option>
+              <option value="juice">Juices</option> {/* Fixed typo: "Jucies" to "Juices" */}
               <option value="sweet">Sweets</option>
-
             </select>
           </div>
 
@@ -84,7 +78,7 @@ const Menu = () => {
               </h1>
               <div className="h-[2px] w-8 md:w-16 bg-gray-400"></div>
             </div>
-            
+
             {/* Subheading */}
             <p className="text-[0.6rem] md:text-sm text-gray-600 m-2 text-center">
               Discover a variety of delicious dishes crafted just for you!
@@ -96,8 +90,8 @@ const Menu = () => {
             {filteredItems &&
               filteredItems.map((food) => (
                 <MenuFoodCard
-                  key={food.id}
-                  id={food.id}
+                  key={food._id} // Changed id to _id
+                  _id={food._id} // Changed id to _id
                   name={food.name}
                   price={food.price}
                   desc={food.desc}

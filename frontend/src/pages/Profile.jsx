@@ -1,7 +1,5 @@
 import { useState } from "react";
-// import { Link } from "react-router-dom";
-
-import profilePicImg from '../assets/prfilePic.png'
+import profilePicImg from '../assets/prfilePic.png';
 
 const Profile = () => {
   const [user, setUser] = useState({
@@ -10,9 +8,9 @@ const Profile = () => {
     balance: 500,
     profilePic: profilePicImg,
     orders: [
-      { id: 1, item: "Burger", price: 100, date: "2025-02-20" },
-      { id: 2, item: "Pizza", price: 200, date: "2025-02-22" },
-      { id: 3, item: "Pasta", price: 150, date: "2025-02-25" },
+      { _id: "1", item: "Burger", price: 100, date: "2025-02-20" }, // Changed id to _id and made it a string
+      { _id: "2", item: "Pizza", price: 200, date: "2025-02-22" },  // Changed id to _id and made it a string
+      { _id: "3", item: "Pasta", price: 150, date: "2025-02-25" },  // Changed id to _id and made it a string
     ],
   });
 
@@ -43,7 +41,7 @@ const Profile = () => {
         <h3 className="text-lg font-semibold mb-4">Order History</h3>
         <ul className="divide-y divide-gray-300">
           {user.orders.map((order) => (
-            <li key={order.id} className="py-2 flex justify-between text-gray-700">
+            <li key={order._id} className="py-2 flex justify-between text-gray-700"> {/* Changed id to _id */}
               <span>{order.item}</span>
               <span>₹{order.price}</span>
               <span className="text-sm text-gray-500">{order.date}</span>

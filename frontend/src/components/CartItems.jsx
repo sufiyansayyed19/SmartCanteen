@@ -4,7 +4,7 @@ import { FaMinus, FaPlus } from "react-icons/fa";
 import useCartStore from "../store/cartStore"; // Import Zustand store
 import PropTypes from "prop-types";
 
-const CartItems = ({ id, img, name, price, rating, qty }) => {
+const CartItems = ({ _id, img, name, price, rating, qty }) => { // Changed id to _id
    const { removeFromCart, incrementQty, decrementQty } = useCartStore(); // Zustand actions
 
    return (
@@ -25,7 +25,7 @@ const CartItems = ({ id, img, name, price, rating, qty }) => {
             </div>
             {/* Remove from Cart */}
             <button
-               onClick={() => removeFromCart(id)}
+               onClick={() => removeFromCart(_id)} // Changed id to _id
                className="text-red-500 hover:text-red-700"
             >
                <FaTrash size={18} />
@@ -34,16 +34,16 @@ const CartItems = ({ id, img, name, price, rating, qty }) => {
 
          {/* Quantity Controls */}
          <div className="flex items-center justify-between mt-4">
-            <div className="flex items-center justify-start ">
+            <div className="flex items-center justify-start">
                <button
-                  onClick={() => qty > 1 && decrementQty(id)}
+                  onClick={() => qty > 1 && decrementQty(_id)} // Changed id to _id
                   className="bg-yellow-500 text-white p-2 rounded-full"
                >
                   <FaMinus />
                </button>
-               <span className="font-semibold px-3">{qty ? qty:1}</span>
+               <span className="font-semibold px-3">{qty ? qty : 1}</span>
                <button
-                  onClick={() => incrementQty(id)}
+                  onClick={() => incrementQty(_id)} // Changed id to _id
                   className="bg-yellow-500 text-white p-2 rounded-full"
                >
                   <FaPlus />
@@ -55,11 +55,12 @@ const CartItems = ({ id, img, name, price, rating, qty }) => {
 };
 
 CartItems.propTypes = {
-    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-    img: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    rating: PropTypes.number.isRequired,
-    qty: PropTypes.number.isRequired,
- };
+   _id: PropTypes.string.isRequired, // Changed id to _id, removed PropTypes.number since it's always a string
+   img: PropTypes.string.isRequired,
+   name: PropTypes.string.isRequired,
+   price: PropTypes.number.isRequired,
+   rating: PropTypes.number.isRequired,
+   qty: PropTypes.number.isRequired,
+};
+
 export default CartItems;

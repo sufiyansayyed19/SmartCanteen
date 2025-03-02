@@ -20,6 +20,6 @@ const WholeFoodData = [
   ...Drinks,
   ...Juices,
   ...Sweets
-].sort((a, b) => a.id - b.id);
+];
 
 export default WholeFoodData;

@@ -2,8 +2,9 @@ import { AiFillStar } from "react-icons/ai";
 import useCartStore from "../store/cartStore";
 import PropTypes from "prop-types";
 
-const MenuFoodCard = ({ id, name, price, desc, img, rating, handleToast }) => {
+const MenuFoodCard = ({ _id, name, price, desc, img, rating, handleToast }) => { // Changed id to _id
   const { addToCart, cart } = useCartStore();
+
   return (
     <div className="font-bold w-[8rem] md:w-[12rem] bg-white p-2 md:p-4 flex flex-col justify-between rounded-2xl gap-1.5 shadow-xl border-[1px]">
       {/* Image */}
@@ -37,7 +38,7 @@ const MenuFoodCard = ({ id, name, price, desc, img, rating, handleToast }) => {
         {/* Add to Cart Button */}
         <button
           onClick={async () => {
-            addToCart({ id, name, price, rating, img, status: "Due" });
+            addToCart({ _id, name, price, rating, img, status: "Due" }); // Changed id to _id
             handleToast(name);
             console.log(cart);
           }}
@@ -51,13 +52,13 @@ const MenuFoodCard = ({ id, name, price, desc, img, rating, handleToast }) => {
 };
 
 MenuFoodCard.propTypes = {
-  id: PropTypes.number.isRequired, // id must be a number and is required
-  name: PropTypes.string.isRequired, // name must be a string and required
-  price: PropTypes.number.isRequired, // price must be a number
-  desc: PropTypes.string.isRequired, // desc must be a string
-  img: PropTypes.string.isRequired, // img must be a string (URL)
-  rating: PropTypes.number, // rating must be a number (optional)
-  handleToast: PropTypes.func.isRequired, // handleToast must be a function
+  _id: PropTypes.string.isRequired, // Changed id to _id and updated to string
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  desc: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
+  rating: PropTypes.number,
+  handleToast: PropTypes.func.isRequired,
 };
 
 export default MenuFoodCard;

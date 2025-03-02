@@ -91,6 +91,7 @@ const AdminProductCard = ({ product, onRemove, onEdit }) => {
 
 AdminProductCard.propTypes = {
   product: PropTypes.shape({
+    _id: PropTypes.string.isRequired, // Updated to _id
     img: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     isVeg: PropTypes.bool,
@@ -99,7 +100,7 @@ AdminProductCard.propTypes = {
     desc: PropTypes.string,
     price: PropTypes.number.isRequired,
   }).isRequired,
-  onRemove: PropTypes.func, // Updated to onRemove
+  onRemove: PropTypes.func,
   onEdit: PropTypes.func,
 };
 

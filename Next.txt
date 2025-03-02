@@ -1,0 +1,5 @@
+1. Admin login page
+2. Admin Dashboard params
+3. Change id to string and update id to _id in whole project
+4. Home page: iterate all product data, then show product instead of local array
+5.

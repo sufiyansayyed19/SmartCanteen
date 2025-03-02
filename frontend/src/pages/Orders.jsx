@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
 import useOrderStore from "../store/OrderStore";
+
 const Orders = () => {
-  const orderItems = useOrderStore((state) => state.orderItems) ;
+  const orderItems = useOrderStore((state) => state.orderItems);
 
   // Calculate Total Price
-  let totalPrice; 
-  if (orderItems) {
+  let totalPrice = 0; // Initialized to 0 for safety
+  if (orderItems.length > 0) { // Added length check for better safety
     totalPrice = orderItems.reduce(
       (total, item) => total + item.qty * item.price,
       0
     );
   }
-  
 
   // Calculate Paid Amount
   const paidAmount = orderItems.reduce((total, item) => {
@@ -27,7 +27,7 @@ const Orders = () => {
         {/* Page Header */}
         <div className="flex items-center my-5">
           <div className="mr-2 md:mr-3 h-[2px] w-8 md:w-20 bg-gray-400"></div>
-          <h2 className="text-xl md:text-3xl font-bold text-red-950 ">Your Orders</h2>
+          <h2 className="text-xl md:text-3xl font-bold text-red-950">Your Orders</h2>
           <div className="ml-2 md:ml-3 h-[2px] w-8 md:w-20 bg-gray-400"></div>
         </div>
 
@@ -36,7 +36,7 @@ const Orders = () => {
           <div className="space-y-6">
             {orderItems.map((item) => (
               <div
-                key={item.id}
+                key={item._id} // Changed id to _id
                 className="bg-white p-6 rounded-lg shadow-md flex items-center justify-between"
               >
                 {/* Item Image and Details */}
@@ -47,7 +47,7 @@ const Orders = () => {
                     className="w-20 h-20 object-cover rounded-md"
                   />
                   <div className="ml-4">
-                    <h2 className=" md:text-xl font-semibold text-gray-800">
+                    <h2 className="md:text-xl font-semibold text-gray-800">
                       {item.name}
                     </h2>
                     <p className="font-semibold text-sm text-gray-600">₹{item.price}</p>
@@ -91,16 +91,16 @@ const Orders = () => {
               No orders yet!
             </h2>
             <p className="text-gray-600">
-              Looks like you haven&apos;t ordered anything yet. Time to explore the menu!
+              Looks like you haven't ordered anything yet. Time to explore the menu!
             </p>
             {/* CTA Button */}
             <Link to="/menu">
-                <button
-                  type="button"
-                  className="mt-4 px-6 py-2 bg-red-950 text-white rounded-lg hover:bg-red-900 transition duration-300"
-                >
-                  Explore the Menu
-                </button>
+              <button
+                type="button"
+                className="mt-4 px-6 py-2 bg-red-950 text-white rounded-lg hover:bg-red-900 transition duration-300"
+              >
+                Explore the Menu
+              </button>
             </Link>
           </div>
         )}

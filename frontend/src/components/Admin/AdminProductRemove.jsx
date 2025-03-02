@@ -23,7 +23,7 @@ const AdminProductRemove = ({
             Cancel
           </button>
           <button
-            onClick={() => onConfirm(itemToRemove.id)}
+            onClick={() => onConfirm(itemToRemove._id)} // Updated to use _id
             className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
           >
             Delete
@@ -38,7 +38,7 @@ const AdminProductRemove = ({
 AdminProductRemove.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   itemToRemove: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    _id: PropTypes.string.isRequired, // Updated to _id
     name: PropTypes.string,
   }),
   onCancel: PropTypes.func.isRequired,

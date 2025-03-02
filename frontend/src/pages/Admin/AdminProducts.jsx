@@ -8,23 +8,12 @@ import AdminProductRemove from "../../components/Admin/AdminProductRemove"; // U
 import useAdminStore from "../../store/adminStore";
 import toast from 'react-hot-toast';
 
-
-
 const AdminProductsPage = () => {
   const navigate = useNavigate();
   const AllProduct = useAdminStore((state) => state.AllProducts);
   const { deleteProduct } = useAdminStore();
   const [products, setProducts] = useState(AllProduct);
-  // const categories = [
-  //   "TodaySpecial", "Combos", "Breakfast", "Lunch", 
-  //   "Dinner", "Chips", "Biscuits", "Drinks", "Juices", "Sweets"
-  // ];
-  
   const categories = ["Today's special", "Combo", "Breakfast", "Lunch", "Dinner", "Chips", "Biscuits", "Drink", "Juice", "Sweet"];
-
-
-
-
 
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
@@ -37,6 +26,7 @@ const AdminProductsPage = () => {
     
     if (activeCategory !== "All") {
       result = result.filter(product => product.category === activeCategory.toLowerCase());
+      console.log(result)
     }
     
     if (searchTerm) {
@@ -52,17 +42,16 @@ const AdminProductsPage = () => {
     setFilteredProducts(result);
   }, [AllProduct, activeCategory, searchTerm]);
 
-  const handleRemoveProduct = (id) => {
-    console.log(id)
-    deleteProduct(id);
-    setProducts(products.filter(product => product.id !== id));
+  const handleRemoveProduct = (_id) => {
+    console.log(_id);
+    deleteProduct(_id);
+    setProducts(products.filter(product => product._id !== _id));
     setShowRemoveModal(false);
-    toast.success("Prodcut sucessfully deleted");
+    toast.success("Product successfully deleted");
   };
 
   const openRemoveModal = (product) => {
     setProductToRemove(product);
-    // console.log(productToRemove)
     setShowRemoveModal(true);
   };
 
@@ -71,7 +60,8 @@ const AdminProductsPage = () => {
   };
 
   const handleEditProduct = (product) => {
-    navigate(`/admin/edit-product/${product.id}`);
+    console.log(product)
+    navigate(`/admin/edit-product/${product._id}`); // Updated to use _id
   };
 
   return (
@@ -124,7 +114,7 @@ const AdminProductsPage = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {filteredProducts.map((product) => (
             <AdminProductCard 
-              key={product.id} 
+              key={product._id} // Updated to use _id
               product={product} 
               onRemove={openRemoveModal}  // Updated to use onRemove
               onEdit={handleEditProduct} 

@@ -21,6 +21,8 @@ const AdminUpdateProduct = () => {
     img: "",
   });
 
+  const [isLoading, setIsLoading] = useState(true);
+
   // Categories - same as in the products page
   const categories = [
     "today's special",
@@ -39,27 +41,27 @@ const AdminUpdateProduct = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        // Simulating API delay
+        setIsLoading(true);
         await new Promise((resolve) => setTimeout(resolve, 500));
 
-        // Find the product in AllProducts
-        const foundProduct = AllProducts.find((p) => p.id === parseInt(id));
+        const foundProduct = AllProducts.find((p) => p._id === productId);
 
         if (foundProduct) {
           setProduct(foundProduct);
         } else {
-          // Handle product not found
           toast.error("Product not found!");
           navigate("/admin/products");
         }
       } catch (error) {
         console.error("Error fetching product:", error);
         toast.error("Error loading product data");
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchProduct();
-  }, [id, navigate, AllProducts]);
+  }, [productId, navigate, AllProducts]);
 
   // Handle form input changes
   const handleChange = (e) => {
@@ -67,7 +69,12 @@ const AdminUpdateProduct = () => {
 
     setProduct((prev) => ({
       ...prev,
-      [name]: type === "checkbox" ? checked : type === "number" ? parseFloat(value) : value,
+      [name]:
+        type === "checkbox"
+          ? checked
+          : type === "number"
+          ? parseFloat(value)
+          : value,
     }));
   };
 
@@ -75,18 +82,21 @@ const AdminUpdateProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      // Call the updateProduct function from the store
-      await updateProduct(productId, product);
-      console.log(product)
-      // Show success message
-      toast.success("Product updated successfully!");
+    if (!product.name || !product.price || !product.desc || !product.category) {
+      toast.error("Please fill all required fields");
+      return;
+    }
 
-      // Navigate back to products page
+    try {
+      setIsLoading(true);
+      await updateProduct(productId, product);
+      toast.success("Product updated successfully!");
       navigate("/admin/products");
     } catch (error) {
       console.error("Error updating product:", error);
       toast.error("Failed to update product. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -94,8 +104,14 @@ const AdminUpdateProduct = () => {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      // In a real app, you would upload this to your server/cloud storage
-      // For now, we'll just create a local URL
+      if (file.size > 2 * 1024 * 1024) {
+        toast.error("Image size must be less than 2MB");
+        return;
+      }
+      if (!file.type.startsWith("image/")) {
+        toast.error("Please upload a valid image file");
+        return;
+      }
       const imageUrl = URL.createObjectURL(file);
       setProduct((prev) => ({ ...prev, img: imageUrl }));
     }
@@ -128,7 +144,10 @@ const AdminUpdateProduct = () => {
             <div>
               {/* Product Name */}
               <div className="mb-4">
-                <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
+                <label
+                  htmlFor="name"
+                  className="block text-gray-700 font-medium mb-2"
+                >
                   Product Name*
                 </label>
                 <input
@@ -144,7 +163,10 @@ const AdminUpdateProduct = () => {
 
               {/* Price */}
               <div className="mb-4">
-                <label htmlFor="price" className="block text-gray-700 font-medium mb-2">
+                <label
+                  htmlFor="price"
+                  className="block text-gray-700 font-medium mb-2"
+                >
                   Price (₹)*
                 </label>
                 <input
@@ -162,7 +184,10 @@ const AdminUpdateProduct = () => {
 
               {/* Category */}
               <div className="mb-4">
-                <label htmlFor="category" className="block text-gray-700 font-medium mb-2">
+                <label
+                  htmlFor="category"
+                  className="block text-gray-700 font-medium mb-2"
+                >
                   Category*
                 </label>
                 <select
@@ -193,20 +218,28 @@ const AdminUpdateProduct = () => {
                       type="radio"
                       name="isVeg"
                       checked={product.isVeg === true}
-                      onChange={() => setProduct((prev) => ({ ...prev, isVeg: true }))}
+                      onChange={() =>
+                        setProduct((prev) => ({ ...prev, isVeg: true }))
+                      }
                       className="form-radio text-green-500 focus:ring-green-500"
                     />
-                    <span className="ml-2 text-green-600 font-medium">Vegetarian</span>
+                    <span className="ml-2 text-green-600 font-medium">
+                      Vegetarian
+                    </span>
                   </label>
                   <label className="inline-flex items-center">
                     <input
                       type="radio"
                       name="isVeg"
                       checked={product.isVeg === false}
-                      onChange={() => setProduct((prev) => ({ ...prev, isVeg: false }))}
+                      onChange={() =>
+                        setProduct((prev) => ({ ...prev, isVeg: false }))
+                      }
                       className="form-radio text-red-500 focus:ring-red-500"
                     />
-                    <span className="ml-2 text-red-600 font-medium">Non-Vegetarian</span>
+                    <span className="ml-2 text-red-600 font-medium">
+                      Non-Vegetarian
+                    </span>
                   </label>
                 </div>
               </div>
@@ -216,7 +249,10 @@ const AdminUpdateProduct = () => {
             <div>
               {/* Product Description */}
               <div className="mb-4">
-                <label htmlFor="desc" className="block text-gray-700 font-medium mb-2">
+                <label
+                  htmlFor="desc"
+                  className="block text-gray-700 font-medium mb-2"
+                >
                   Description*
                 </label>
                 <textarea
@@ -282,8 +318,37 @@ const AdminUpdateProduct = () => {
             <button
               type="submit"
               className="px-6 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg flex items-center"
+              disabled={isLoading}
             >
-              <FiSave className="mr-2" /> Save Changes
+              {isLoading ? (
+                <>
+                  <svg
+                    className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>
+                  Saving...
+                </>
+              ) : (
+                <>
+                  <FiSave className="mr-2" /> Save Changes
+                </>
+              )}
             </button>
           </div>
         </form>
