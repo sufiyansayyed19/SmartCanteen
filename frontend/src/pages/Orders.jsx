@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import useOrderStore from "../store/OrderStore";
+import useOrderStore from "../store/orderStore";
 
 const Orders = () => {
   const orderItems = useOrderStore((state) => state.orderItems);
