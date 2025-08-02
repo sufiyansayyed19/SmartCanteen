@@ -24,7 +24,7 @@ import Footer from './components/Footer';
 import Cart from './pages/Cart';
 import Orders from './pages/Orders';
 import Contact from './pages/Contact';
-import Profile from './pages/profile';
+import Profile from './pages/Profile';
 import AdminUpdateProduct from './pages/Admin/AdminUpdateProduct';
 // import CanteenNavbar from './components/Canteen/CanteenNavbar';
 function App() {
