@@ -1,5 +1,5 @@
 import img104 from '../assets/Sweets/img1_ChocolatePastry.jpeg';
-import img105 from '../assets/Sweets/img2_VanillaCakeslice.jpeg';
+import img105 from '../assets/Sweets/img2_VanillaCakeSlice.jpeg';
 import img106 from '../assets/Sweets/img3_RedVelvetCupcake.jpeg';
 import img107 from '../assets/Sweets/img4_GulabJamun.jpeg';
 import img108 from '../assets/Sweets/img5_Rasgulla.jpeg';
