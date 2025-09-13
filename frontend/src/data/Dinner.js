@@ -7,7 +7,7 @@ import img54 from '../assets/Dinner/img6_CholeKulcha.jpeg';
 import img55 from '../assets/Dinner/img7_AlooJeeraRice.jpeg';
 import img56 from '../assets/Dinner/img8_VegFriedRice.jpeg';
 import img57 from '../assets/Dinner/img9_DalKhichdi.jpeg';
-import img58 from '../assets/Dinner/img10_vegthali.jpeg';
+import img58 from '../assets/Dinner/img10_VegThali.jpeg';
 import img59 from '../assets/Dinner/img11_ChickenRoti.jpeg';
 import img60 from '../assets/Dinner/img12_ChickenPulao.jpeg';
 import img61 from '../assets/Dinner/img13_ButterChickenBowl.jpeg';
