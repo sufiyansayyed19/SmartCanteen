@@ -4,7 +4,7 @@ import useCartStore from "../store/cartStore"; // Zustand store
 import CartItems from "../components/CartItems";
 import PaymentMethod from "../components/PaymentMethod";
 import toast from "react-hot-toast";
-import useOrderStore from "../store/OrderStore";
+import useOrderStore from "../store/orderStore";
 import useAppStore from "../store/appStore";
 import { useNavigate } from 'react-router-dom';
 
