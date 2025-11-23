@@ -54,14 +54,22 @@ const Navbar = () => {
             <div className="hidden md:block">
               <ul className="flex items-center gap-6 text-gray-600 p-4">
                 {NavbarData.map((item) => {
+                  const Icon = item.icon;
                   return (
                     <li key={item.id} className="relative">
                       <NavLink
                         to={item.link}
-                        className="flex flex-col items-center"
+                        className={({isActive}) => `flex flex-col items-center transition-colors duration-200 ${
+                          isActive ? 'text-orange-600' : 'hover:text-orange-500'
+                        }`}
                       >
-                        <p className="mb-0.5">{item.name}</p>
-                        <hr className="w-3/4 border-none h-[1.5px] bg-gray-600 transition-opacity duration-300 opacity-0 a.active:opacity-100" />
+                        {({isActive}) => (
+                          <>
+                            {Icon && <Icon className="text-xl mb-1" />}
+                            <p className="text-sm font-medium">{item.name}</p>
+                            <hr className={`w-full border-none h-[2px] bg-orange-600 transition-all duration-300 ${isActive ? 'opacity-100' : 'opacity-0'}`} />
+                          </>
+                        )}
                       </NavLink>
                     </li>
                   );

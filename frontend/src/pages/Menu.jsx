@@ -1,17 +1,15 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
-// import { Breakfast, Biscuits, Chips, Combos, Dinner, Drinks, Juices, Lunch, Sweets, TodaySpecial } from "../data"; // Removed NavbarData since it’s unused
 import MenuFoodCard from "../components/MenuFoodCard ";
+import SkeletonCard from "../components/SkeletonCard";
 import WholeFoodData from "../data/WholeFoodData";
 
 const Menu = () => {
-  // const subHeadings = ["🔥 Today's Special 🔥", "🍱 Combos 🍱", "🍳 Breakfast 🍳", "🍲 Lunch 🍲", "🥩 Dinner 🥩", "🍟 Chips 🍟", "🍪 Biscuits 🍪", "🥤 Drinks 🥤", "🧃 Juices 🧃", "🍰 Sweets 🍰"];
-  
-  // const FoodData = [TodaySpecial, Combos, Breakfast, Lunch, Dinner, Chips, Biscuits, Drinks, Juices, Sweets];
-
   const [filters, setFilters] = useState({
-    category: "All", // Default: Show all categories
+    category: "All",
   });
+  
+  const [isLoading] = useState(false); // Set to true when fetching from API
 
   const handleToast = (name) => toast.success(`Added ${name} to cart`);
 
@@ -87,11 +85,16 @@ const Menu = () => {
 
           {/* Display Items */}
           <div className="flex flex-wrap justify-center gap-4 md:gap-10 mx-3 md:mx-10">
-            {filteredItems &&
+            {isLoading ? (
+              // Show skeleton loaders while loading
+              Array.from({ length: 8 }).map((_, index) => (
+                <SkeletonCard key={index} />
+              ))
+            ) : filteredItems.length > 0 ? (
               filteredItems.map((food) => (
                 <MenuFoodCard
-                  key={food._id} // Changed id to _id
-                  _id={food._id} // Changed id to _id
+                  key={food._id}
+                  _id={food._id}
                   name={food.name}
                   price={food.price}
                   desc={food.desc}
@@ -99,7 +102,15 @@ const Menu = () => {
                   img={food.img}
                   handleToast={handleToast}
                 />
-              ))}
+              ))
+            ) : (
+              // Empty state when no items found
+              <div className="flex flex-col items-center justify-center py-16 w-full">
+                <div className="text-6xl mb-4">🍽️</div>
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">No items found</h3>
+                <p className="text-gray-600">Try selecting a different category</p>
+              </div>
+            )}
           </div>
         </div>
       </div>

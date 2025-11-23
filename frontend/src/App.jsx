@@ -26,6 +26,7 @@ import Orders from './pages/Orders';
 import Contact from './pages/Contact';
 import Profile from './pages/Profile';
 import AdminUpdateProduct from './pages/Admin/AdminUpdateProduct';
+import NotFound from './components/NotFound';
 // import CanteenNavbar from './components/Canteen/CanteenNavbar';
 function App() {
   return (
@@ -63,10 +64,8 @@ function App() {
         <Route path="/admin/edit-product/:id" element={<AdminUpdateProduct />} />
         <Route path="/admin/login" element={<AdminLoginPage />} />
         
-
-        
-    
- 
+        {/* 404 Route - Must be last */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer/>
     </Router>
