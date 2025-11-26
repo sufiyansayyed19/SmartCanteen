@@ -8,7 +8,6 @@ import NavbarData from "../data/NavbarData";
 import { useNavigate } from "react-router-dom";
 import useCartStore from "../store/cartStore";
 import { useState, useRef, useEffect } from "react";
-import PropTypes from "prop-types";
 
 const Navbar = () => {
   const navigate = useNavigate();
