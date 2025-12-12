@@ -12,10 +12,20 @@ import { useState, useRef, useEffect } from "react";
 const Navbar = () => {
   const navigate = useNavigate();
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef(null);
   const cartCount = useCartStore((state) =>
     state.cartItems.reduce((total, item) => total + (item.qty || 1), 0)
   );
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
       const handleClickOutside = (e) => {
@@ -37,36 +47,41 @@ const Navbar = () => {
   };
   return (
     <>
-      <div className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
-        <nav className="py-1 md:py-2 w-full">
-          <div className="container mx-auto flex justify-between items-center h-14">
+      <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled 
+          ? 'bg-orange-50/95 backdrop-blur-lg shadow-lg' 
+          : 'bg-orange-50/80 backdrop-blur-md'
+      }`}>
+        <nav className="py-2 md:py-3 w-full">
+          <div className="container mx-auto flex justify-between items-center h-16 lg:ml-5">
             {/* Logo Section */}
-            <Link to="/">
-              <div className="text-xl md:text-2xl flex items-center font-bold uppercase p-4">
-                <p className="text-orange-600 translate-y-1">Smart</p>
-                <p className="text-green-700 translate-y-1">Canteen</p>
-                <img className="w-5 h-6 md:w-9 md:h-8 ml-1" src={logo} alt="" />
+            <Link to="/" className="group">
+              <div className="text-xl md:text-2xl flex items-center font-bold uppercase p-4 transition-transform duration-300 group-hover:scale-105">
+                <p className="text-orange-600 translate-y-1 transition-colors duration-300 group-hover:text-orange-700">Smart</p>
+                <p className="text-green-700 translate-y-1 transition-colors duration-300 group-hover:text-green-800">Canteen</p>
+                <img className="w-5 h-6 md:w-9 md:h-8 ml-1 transition-transform duration-300 group-hover:rotate-12" src={logo} alt="SmartCanteen" />
               </div>
             </Link>
 
             {/* Menu Section */}
             <div className="hidden md:block">
-              <ul className="flex items-center gap-6 text-gray-600 p-4">
+              <ul className="flex items-center gap-2 text-gray-700 p-4">
                 {NavbarData.map((item) => {
                   const Icon = item.icon;
                   return (
-                    <li key={item.id} className="relative">
+                    <li key={item.id} className="relative group">
                       <NavLink
                         to={item.link}
-                        className={({isActive}) => `flex flex-col items-center transition-colors duration-200 ${
-                          isActive ? 'text-orange-600' : 'hover:text-orange-500'
+                        className={({isActive}) => `flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 ${
+                          isActive 
+                            ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg shadow-orange-200' 
+                            : 'hover:bg-orange-50 hover:text-orange-600 hover:scale-105'
                         }`}
                       >
                         {({isActive}) => (
                           <>
-                            {Icon && <Icon className="text-xl mb-1" />}
-                            <p className="text-sm font-medium">{item.name}</p>
-                            <hr className={`w-full border-none h-[2px] bg-orange-600 transition-all duration-300 ${isActive ? 'opacity-100' : 'opacity-0'}`} />
+                            {Icon && <Icon className={`text-lg transition-transform duration-300 ${isActive ? 'scale-110' : 'group-hover:scale-110'}`} />}
+                            <span className="text-sm font-medium">{item.name}</span>
                           </>
                         )}
                       </NavLink>
@@ -77,51 +92,51 @@ const Navbar = () => {
             </div>
 
             {/* icon Section */}
-            <div className="flex items-center gap-3 md:gap-5 md:text-2xl text-xl p-4">
-              <button className="hidden md:block font-semibold mt-2">
-                <CiSearch />
+            <div className="flex items-center gap-2 md:gap-4 md:text-2xl text-xl p-4 lg:mr-6">
+              <button className="hidden md:flex items-center justify-center w-10 h-10 rounded-full hover:bg-orange-50 transition-all duration-300 hover:scale-110 hover:text-orange-600">
+                <CiSearch className="text-2xl" />
               </button>
 
-              <Link to="/cart" className="relative mt-2">
-                <button className="font-semibold text-2xl">
-                  <PiShoppingCartThin />
+              <Link to="/cart" className="relative group">
+                <button className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-orange-50 transition-all duration-300 group-hover:scale-110 hover:text-orange-600">
+                  <PiShoppingCartThin className="text-2xl" />
                 </button>
-                <p
-                  className={`${
-                    cartCount ? "absolute" : "hidden"
-                  } absolute right-[-1px] top-[-2px] w-3 h-3 text-[7px] md:w-4 md:h-4 md:text-[8px] text-center leading-relaxed bg-black text-white aspect-square rounded-full`}
-                >
-                  {cartCount}
-                </p>
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center shadow-lg animate-pulse">
+                    {cartCount}
+                  </span>
+                )}
               </Link>
-              <div className="group relative mt-2 z-30" ref={dropdownRef}>
+              
+              <div className="group relative z-30" ref={dropdownRef}>
                 {/* Dropdown Toggle Button */}
                 <button
                   onClick={() => setIsDropdownVisible(!isDropdownVisible)}
-                  className="font-semibold text-xl"
+                  className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-orange-50 transition-all duration-300 hover:scale-110 hover:text-orange-600"
                 >
-                  <VscAccount />
+                  <VscAccount className="text-xl" />
                 </button>
 
                 {/* Dropdown Menu */}
                 {isDropdownVisible && (
                   <div className="absolute right-0 pt-4">
-                    <div className="flex flex-col w-36 gap-2 px-5 py-3 bg-slate-100 text-gray-500 rounded text-sm">
+                    <div className="flex flex-col w-40 gap-1 p-2 bg-white/95 backdrop-blur-md text-gray-700 rounded-xl shadow-2xl border border-gray-100">
                       <p
                         onClick={() => handleNavigation("/profile")}
-                        className="cursor-pointer hover:text-black"
+                        className="cursor-pointer hover:bg-orange-50 hover:text-orange-600 px-4 py-2 rounded-lg transition-all duration-200"
                       >
                         My Profile
                       </p>
                       <p
                         onClick={() => handleNavigation("/orders")}
-                        className="cursor-pointer hover:text-black"
+                        className="cursor-pointer hover:bg-orange-50 hover:text-orange-600 px-4 py-2 rounded-lg transition-all duration-200"
                       >
                         Orders
                       </p>
+                      <div className="h-px bg-gray-200 my-1"></div>
                       <p
                         onClick={() => handleNavigation("/")}
-                        className="cursor-pointer hover:text-black"
+                        className="cursor-pointer hover:bg-red-50 hover:text-red-600 px-4 py-2 rounded-lg transition-all duration-200"
                       >
                         Logout
                       </p>
@@ -138,7 +153,7 @@ const Navbar = () => {
       </div>
 
       {/* Add a spacer div to prevent content from hiding under the fixed navbar */}
-      <div className="h-14 md:h-16"></div>
+      <div className="h-16 md:h-20"></div>
     </>
   );
 };
